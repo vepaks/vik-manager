@@ -1,4 +1,5 @@
 {
   "serverPort": 5000,
-  "DB_URL": "mongodb://127.0.0.1:27017/cloudStorage"
+  "DB_URL": "mongodb://127.0.0.1:27017/cloudStorage",
+  "secretKey": "jwt-secret-key"
 }
