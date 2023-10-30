@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
-import Table from "../../../widgets/Table/ui/Table";
+import React  from 'react';
 
-class LoginPage extends Component {
-    render() {
-        return (
-          <Table/>
-        );
-    }
-}
+
+const LoginPage = () => {
+    return (
+        <div>
+            LOGIN PAGE
+        </div>
+    );
+};
 
 export default LoginPage;
+
