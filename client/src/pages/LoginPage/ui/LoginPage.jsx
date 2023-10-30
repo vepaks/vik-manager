@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
+import Table from "../../../widgets/Table/ui/Table";
 
 class LoginPage extends Component {
     render() {
         return (
-           <div>
-               LOGIN PAGE
-               <button  ></button>
-           </div>
+          <Table/>
         );
     }
 }

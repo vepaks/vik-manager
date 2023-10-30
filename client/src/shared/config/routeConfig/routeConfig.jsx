@@ -1,5 +1,5 @@
 import {LoginPage} from "../../../pages/LoginPage";
-import {RegisterPage} from "../../../pages/RegisterForm";
+import {RegisterPage} from "../../../pages/RegisterPage";
 
 export class AppRoutes {
     static LOGIN = new AppRoutes('login');
