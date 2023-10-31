@@ -9,6 +9,13 @@ export const Navbar = ({ className }) => {
       <ThemeSwitcher />
       <div className={cls.links}>
         <AppLink
+            theme={AppLinkTheme.SECONDARY}
+            to="/"
+            className={cls.mainLink}
+        >
+          MAIN
+        </AppLink>
+        <AppLink
           theme={AppLinkTheme.SECONDARY}
           to="/login"
           className={cls.mainLink}
@@ -21,6 +28,7 @@ export const Navbar = ({ className }) => {
         <AppLink theme={AppLinkTheme.SECONDARY} to="/cloud" className={cls.mainLink}>
           CLOUD
         </AppLink>
+
       </div>
     </div>
   );
