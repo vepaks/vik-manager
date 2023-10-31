@@ -1,9 +1,10 @@
 import React from 'react';
+import {RegisterForm} from "../../../widgets/RegisterForm/ui/RegisterForm";
 
 const RegisterPage = () => {
     return (
         <div>
-           REGISTER PAGE
+          <RegisterForm/>
         </div>
     );
 };

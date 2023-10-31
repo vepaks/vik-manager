@@ -1,10 +1,12 @@
 import React  from 'react';
+import {LoginForm} from "../../../widgets/LoginForm/ui/LoginForm";
+
 
 
 const LoginPage = () => {
     return (
         <div>
-            LOGIN PAGE
+            <LoginForm/>
         </div>
     );
 };
