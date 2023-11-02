@@ -22,7 +22,7 @@ export const Navbar = ({ className }) => {
         >
           LOGIN
         </AppLink>
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/register" className={cls.mainLink}>
+        <AppLink theme={AppLinkTheme.SECONDARY} to="/signup" className={cls.mainLink}>
           REGISTER
         </AppLink>
         <AppLink theme={AppLinkTheme.SECONDARY} to="/cloud" className={cls.mainLink}>

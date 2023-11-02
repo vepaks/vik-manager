@@ -1,12 +1,9 @@
 import React  from 'react';
-import {LoginForm} from "../../../widgets/LoginForm/ui/LoginForm";
-
-
 
 const LoginPage = () => {
     return (
         <div>
-            <LoginForm/>
+       LOGIN PAGE
         </div>
     );
 };

@@ -1,3 +1,7 @@
 .Input {
-
+  color: #3C3C3C;
+  &:focus {
+    outline: none;
+    transform: scale(1.05);
+  }
 }
