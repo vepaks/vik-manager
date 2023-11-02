@@ -11,13 +11,13 @@ const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
-  <Provider store={store}>
-    <StrictMode>
+  <StrictMode>
+    <Provider store={store}>
       <BrowserRouter>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </BrowserRouter>
-    </StrictMode>
-  </Provider>,
+    </Provider>
+  </StrictMode>,
 );

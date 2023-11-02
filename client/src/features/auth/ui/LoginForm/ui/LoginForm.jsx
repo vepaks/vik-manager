@@ -4,11 +4,13 @@ import {Input} from "../../../../../shared/ui/Input";
 import {Button} from "../../../../../shared/ui/Button";
 import React, {useState} from "react";
 import {login} from "../../../models/login";
+import {useDispatch} from "react-redux";
 
 export const LoginForm = ({className}) => {
 
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
+    const dispatch = useDispatch()
 
     return (
             <div className={classNames(cls, {}, [className])}>
@@ -71,7 +73,7 @@ export const LoginForm = ({className}) => {
                                     ])}
                                     type="submit"
                                     onClick={() =>
-                                        login(Email, Password)
+                                        dispatch(login(Email, Password))
                                     }
                                 >
                                     Влез
