@@ -23,7 +23,7 @@ export const SignupForm = (props, { className }) => {
                   "text-4xl font-bold",
                 ])}
               >
-                Регистрирай се
+                Регистрация в системата
               </h3>
             </a>
           </div>
@@ -105,7 +105,7 @@ export const SignupForm = (props, { className }) => {
                   className="text-sm text-gray-600 underline hover:text-gray-900"
                   href="/login"
                 >
-                  Already registered?
+                  Вече имаш регистрация?
                 </a>
                 <Button
                   className={classNames(cls.Button, {}, [
@@ -116,7 +116,7 @@ export const SignupForm = (props, { className }) => {
                     registration(Email, Password)
                   }
                 >
-                  Sign Up
+                  Регистрация
                 </Button>
               </div>
           </div>

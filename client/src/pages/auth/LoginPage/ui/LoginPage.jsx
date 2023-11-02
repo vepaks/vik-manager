@@ -1,9 +1,10 @@
 import React  from 'react';
+import {LoginForm} from "../../../../features/auth";
 
 const LoginPage = () => {
     return (
         <div>
-       LOGIN PAGE
+       <LoginForm/>
         </div>
     );
 };
