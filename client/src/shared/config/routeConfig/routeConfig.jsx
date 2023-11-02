@@ -1,7 +1,7 @@
-import { LoginPage } from "../../../pages/LoginPage";
-import { CloudPage } from "../../../pages/CloudPage";
-import { MainPage } from "../../../pages/MainPage";
-import { SignupPage } from "../../../pages/SignupPage";
+import { LoginPage } from "../../../pages/auth/LoginPage";
+import { CloudPage } from "../../../pages/viewer/user/CloudPage";
+import { MainPage } from "../../../pages/viewer/MainPage";
+import { SignupPage } from "../../../pages/auth/SignupPage";
 
 export class AppRoutes {
   static MAIN = new AppRoutes("main");

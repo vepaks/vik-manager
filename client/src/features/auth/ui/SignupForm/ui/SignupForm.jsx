@@ -3,10 +3,11 @@ import cls from "./SignupForm.module.scss";
 import { Input } from "../../../../../shared/ui/Input";
 import { Button } from "../../../../../shared/ui/Button";
 import React, { useState } from "react";
+import {registration} from "../../../models/registration";
 
 export const SignupForm = (props, { className }) => {
-  const [FirstName, setFirstName] = useState("");
-  const [LastName, setLastName] = useState("");
+  // const [FirstName, setFirstName] = useState("");
+  // const [LastName, setLastName] = useState("");
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
 
@@ -32,33 +33,32 @@ export const SignupForm = (props, { className }) => {
               "w-full px-6 py-4 mt-6 overflow-hidden shadow-md sm:max-w-md sm:rounded-lg",
             ])}
           >
-            <form>
-              <div className="mt-4">
-                <label className="block text-m font-medium text-gray-700 undefined">
-                  Име
-                </label>
-                <div className="flex flex-col items-start ">
-                  <Input
-                    value={FirstName}
-                    type="text"
-                    setValue={setFirstName}
-                    placeholder="въведете име"
-                  />
-                </div>
-              </div>
-              <div className="mt-4">
-                <label className="block text-m font-medium text-gray-700 undefined">
-                  Фамилия
-                </label>
-                <div className="flex flex-col items-start">
-                  <Input
-                    value={LastName}
-                    setValue={setLastName}
-                    type="text"
-                    placeholder="въведете фамилия"
-                  />
-                </div>
-              </div>
+              {/*<div className="mt-4">*/}
+              {/*  <label className="block text-m font-medium text-gray-700 undefined">*/}
+              {/*    Име*/}
+              {/*  </label>*/}
+              {/*  <div className="flex flex-col items-start ">*/}
+              {/*    <Input*/}
+              {/*      value={FirstName}*/}
+              {/*      type="text"*/}
+              {/*      setValue={setFirstName}*/}
+              {/*      placeholder="въведете име"*/}
+              {/*    />*/}
+              {/*  </div>*/}
+              {/*</div>*/}
+              {/*<div className="mt-4">*/}
+              {/*  <label className="block text-m font-medium text-gray-700 undefined">*/}
+              {/*    Фамилия*/}
+              {/*  </label>*/}
+              {/*  <div className="flex flex-col items-start">*/}
+              {/*    <Input*/}
+              {/*      value={LastName}*/}
+              {/*      setValue={setLastName}*/}
+              {/*      type="text"*/}
+              {/*      placeholder="въведете фамилия"*/}
+              {/*    />*/}
+              {/*  </div>*/}
+              {/*</div>*/}
               <div className="mt-4">
                 <label className="block text-m font-medium text-gray-700 undefined">
                   Email
@@ -112,14 +112,13 @@ export const SignupForm = (props, { className }) => {
                     "inline-flex items-center px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md active:bg-gray-900 false",
                   ])}
                   type="submit"
-                  onClick={() => {
-                    console.log(Email, FirstName, LastName);
-                  }}
+                  onClick={() =>
+                    registration(Email, Password)
+                  }
                 >
-                  Register
+                  Sign Up
                 </Button>
               </div>
-            </form>
           </div>
         </div>
       </div>

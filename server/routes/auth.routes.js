@@ -7,7 +7,7 @@ const config = require("config");
 
 const { check, validationResult } = require("express-validator");
 router.post(
-  "/registration",
+  "/signup",
   [
     check("email", "Неправилен email").isEmail(),
     check(
@@ -38,7 +38,7 @@ router.post(
       const hashPass = await bcrypt.hash(password, 6);
       const user = new User({ email, password: hashPass });
       await user.save();
-      return res.json({ message: `Потребителят е регистриран` });
+      return res.json({ message: `Успешна регистрация` });
     } catch (e) {
       console.log(e);
     }
