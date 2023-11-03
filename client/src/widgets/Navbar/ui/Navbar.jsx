@@ -2,10 +2,12 @@ import { classNames } from "../../../shared/lib/classNames/classNames";
 import cls from "./Navbar.module.scss";
 import { AppLink, AppLinkTheme } from "../../../shared/ui/AppLink/AppLink";
 import { ThemeSwitcher } from "../../ThemeSwitcher";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {logout} from "../../../app/reducers/userReducer";
 
 export const Navbar = ({ className }) => {
   const isAuth = useSelector((state) => state.user.isAuth);
+  const dispatch = useDispatch()
 
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
@@ -27,9 +29,8 @@ export const Navbar = ({ className }) => {
             >
               CLOUD
             </AppLink>
-            <AppLink
+            <AppLink onClick={() => dispatch(logout())}
                 theme={AppLinkTheme.SECONDARY}
-                to="/logout"
                 className={cls.mainLink}
             >
               LOGOUT
