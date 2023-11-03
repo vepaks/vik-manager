@@ -1,4 +1,5 @@
 import axios from "axios";
+import {setUser} from "../../../app/reducers/userReducer";
 
 export const login  = (email, password) => {
     return async dispatch => {
@@ -7,6 +8,8 @@ export const login  = (email, password) => {
                 email,
                 password
             })
+            dispatch(setUser(response.data.user))
+            localStorage.setItem("token", response.data.token)
             console.log(response.data)
         } catch (e) {
             console.log(e.response.status)

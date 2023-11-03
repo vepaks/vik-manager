@@ -1,6 +1,6 @@
 import { LoginPage } from "../../../pages/auth/LoginPage";
-import { CloudPage } from "../../../pages/viewer/user/CloudPage";
-import { MainPage } from "../../../pages/viewer/MainPage";
+import { CloudPage } from "../../../entities/user/CloudPage";
+import { MainPage } from "../../../pages/MainPage";
 import { SignupPage } from "../../../pages/auth/SignupPage";
 
 export class AppRoutes {
