@@ -8,32 +8,30 @@ export const Table = ({className}) => {
 
     <div className="overflow-x-auto">
         <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
-            <thead className="ltr:text-left rtl:text-right">
+            <thead className="ltr:text-left rtl:text-left">
             <tr>
                 <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    Name
+                    Име и Фамилия
                 </th>
                 <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    Date of Birth
+                   Адрес
                 </th>
                 <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    Role
+                    Данни
                 </th>
                 <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    Salary
+                    Действие
                 </th>
-                <th className="px-4 py-2"></th>
             </tr>
             </thead>
 
-            <tbody className="divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-200 ltr:text-left rtl:text-left">
             <tr>
                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                     John Doe
                 </td>
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">Web Developer</td>
-                <td className="whitespace-nowrap px-4 py-2 text-gray-700">$120,000</td>
                 <td className="whitespace-nowrap px-4 py-2">
                     <a
                         href="#"
@@ -50,7 +48,6 @@ export const Table = ({className}) => {
                 </td>
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">04/11/1980</td>
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">Web Designer</td>
-                <td className="whitespace-nowrap px-4 py-2 text-gray-700">$100,000</td>
                 <td className="whitespace-nowrap px-4 py-2">
                     <a
                         href="#"
@@ -67,7 +64,6 @@ export const Table = ({className}) => {
                 </td>
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">Singer</td>
-                <td className="whitespace-nowrap px-4 py-2 text-gray-700">$20,000</td>
                 <td className="whitespace-nowrap px-4 py-2">
                     <a
                         href="#"

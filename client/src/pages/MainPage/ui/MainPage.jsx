@@ -1,10 +1,10 @@
 import React  from 'react';
-import {redirectToLogin} from "../../../shared/lib/redirects/toLogin/redirectToLogin";
+import {Table} from "../../../widgets/Table";
 
 const LoginPage = () => {
     return (
         <div>
-            MAIN PAGE
+            <Table/>
         </div>
     );
 };
