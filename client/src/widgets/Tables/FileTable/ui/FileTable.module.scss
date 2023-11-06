@@ -1,10 +1,5 @@
 .Table {
-  width: 80%;
-  height: var(--navbar-height);
-  background: var(--inverted-bg-color);
-}
-
-.wrapper {
+  //background: var(--inverted-bg-color);
   margin: 0 auto;
   padding: 40px;
   max-width: 800px;
@@ -25,20 +20,16 @@
 .row {
   display: table-row;
   background: #f6f6f6;
+  color: #3C3C3C;
 }
 .row:nth-of-type(odd) {
-  background: #e9e9e9;
+  background: var(--inverted-bg-color);
+  //background: #e9e9e9;
 }
-.row.header {
+.rowheader {
   font-weight: 900;
   color: #ffffff;
   background: #ea6153;
-}
-.row.green {
-  background: #27ae60;
-}
-.row.blue {
-  background: #2980b9;
 }
 @media screen and (max-width: 580px) {
   .row {

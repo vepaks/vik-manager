@@ -1,10 +1,10 @@
 import React  from 'react';
-import {Table} from "../../../widgets/Table";
+import {ManagerTable} from "../../../widgets/Tables";
 
 const LoginPage = () => {
     return (
         <div>
-            <Table/>
+            <ManagerTable/>
         </div>
     );
 };
