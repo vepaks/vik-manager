@@ -1,7 +1,6 @@
 const SET_USER = "SET_USER"
 const LOGOUT = "LOGOUT"
 
-
 const defaultSpate = {
   currentUser: {},
   isAuth: false,
