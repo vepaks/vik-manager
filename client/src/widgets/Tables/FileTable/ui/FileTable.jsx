@@ -10,10 +10,18 @@ export const FileTable = ({className}) => {
         {_id: 1, name: 'Документи за блок 14', type: 'dir', size: "3gb", date: '11.11.2023'},
         {_id: 2, name: 'Документи за блок 8', type: 'photo', size: "1gb", date: '08.11.2023'},
     ].map(file => <File key={file._id}/> )
+
+    if (files.length === 0) {
+        return (
+            <div className={classNames(cls.loader, {}, [className])}>Документация не е намерена</div>
+        )
+    }
+
+
     return (
         <div className={classNames(cls.Table, {}, [className])}>
                 <div className={classNames(cls.header, {}, [className])}>
-                    <div className={classNames(cls.cell, {}, [className])}>
+                    <div className={classNames(cls, {}, [className])}>
                     </div>
                     <div className={classNames(cls.name, {}, [className])}>
                      Документация

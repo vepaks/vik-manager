@@ -1,0 +1,53 @@
+.Data {
+  margin: 10px 0;
+  border-bottom: solid 2px var(--inverted-bg-color);
+  display: grid;
+  grid-template-columns: 1fr 4fr repeat(4, 1fr);
+  align-items: center;
+}
+
+.Data:hover {
+  transform: scale(1.01);
+}
+
+.img {
+  justify-self: center;
+  width: 2em;
+  padding: 1px;
+}
+
+.date {
+  grid-column-start: 5;
+  justify-self: center;
+}
+
+.size {
+  grid-column-start: 6;
+  justify-self: center;
+}
+
+.download {
+  display: none;
+}
+
+.delete {
+  display: none;
+}
+
+.Data:hover .date {
+  grid-column-start: 3;
+}
+
+.Data:hover .size {
+  grid-column-start: 4;
+}
+
+.Data:hover .download {
+  grid-column-start: 5;
+  display: block;
+}
+
+.Data:hover .delete {
+  grid-column-start: 6;
+  display: block;
+}
