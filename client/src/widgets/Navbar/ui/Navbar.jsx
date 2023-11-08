@@ -4,6 +4,7 @@ import { AppLink, AppLinkTheme } from "../../../shared/ui/AppLink/AppLink";
 import { ThemeSwitcher } from "../../ThemeSwitcher";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../../app/reducers/userReducer";
+import {redirectToLogin} from "../../../shared/lib/redirects/toLogin/redirectToLogin";
 
 export const Navbar = ({ className }) => {
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -13,7 +14,7 @@ export const Navbar = ({ className }) => {
     <div className={classNames(cls.Navbar, {}, [className])}>
       <ThemeSwitcher />
       <div className={cls.links}>
-        { isAuth ? (
+        {isAuth ? (
           <div>
             <AppLink
               theme={AppLinkTheme.SECONDARY}
@@ -29,9 +30,13 @@ export const Navbar = ({ className }) => {
             >
               CLOUD
             </AppLink>
-            <AppLink onClick={() => dispatch(logout())}
-                theme={AppLinkTheme.SECONDARY}
-                className={cls.mainLink}
+            <AppLink
+              onClick={() => {
+                dispatch(logout());
+                redirectToLogin()
+              }}
+              theme={AppLinkTheme.SECONDARY}
+              className={cls.mainLink}
             >
               LOGOUT
             </AppLink>

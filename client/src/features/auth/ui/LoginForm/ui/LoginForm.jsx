@@ -4,13 +4,17 @@ import {Input} from "../../../../../shared/ui/Input";
 import {Button} from "../../../../../shared/ui/Button";
 import React, {useState} from "react";
 import {login} from "../../../models/login";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {redirectToMain} from "../../../../../shared/lib/redirects/toMain/redirectToMain";
 
 export const LoginForm = ({ className }) => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
+  const isAuth = useSelector((state) => state.user.isAuth);
+
+  if (!isAuth){
   return (
     <div className={classNames(cls, {}, [className])}>
       <div>
@@ -71,7 +75,10 @@ export const LoginForm = ({ className }) => {
                   "inline-flex items-center px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md active:bg-gray-900 false",
                 ])}
                 type="submit"
-                onClick={() => dispatch(login(Email, Password))}
+                onClick={() => {
+                  dispatch(login(Email, Password));
+
+                }}
               >
                 Влез
               </Button>
@@ -80,6 +87,9 @@ export const LoginForm = ({ className }) => {
         </div>
       </div>
     </div>
-  );
+  );}
+  else {
+    redirectToMain()
+  }
 };
 
