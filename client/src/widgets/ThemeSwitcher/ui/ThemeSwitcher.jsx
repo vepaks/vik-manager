@@ -14,8 +14,7 @@ export const ThemeSwitcher = ({ className }) => {
       className={classNames(cls.ThemeSwitcher, {}, [className])}
       onClick={toggleTheme}
     >
-      СМЕНИ ТЕМАТА
-      {/*{ theme === Theme.DARK ?  <img src={LightIcon} alt="LightIcon" /> : <img src={DarkIcon} alt="DarkIcon" />}*/}
+      { theme === Theme.DARK ?  'Светла тема' : 'Тъмна тема' }
     </Button>
   );
 };

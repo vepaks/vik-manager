@@ -16,11 +16,11 @@ export const CloudPage = ({ className }) => {
 
   return (
     <div className={classNames(cls.CloudPage, {}, [className])}>
-      <div className={classNames(cls.CloudPage_btns, {}, [className])}>
-        <Button className={classNames(cls.CloudPage_back, {}, [className])}>
+      <div className={classNames(cls.btns, {}, [className])}>
+        <Button className={classNames(cls.back, {}, [className])}>
           Назад
         </Button>
-        <Button className={classNames(cls.CloudPage_create, {}, [className])}>
+        <Button className={classNames(cls.create, {}, [className])}>
           Създай папка
         </Button>
       </div>

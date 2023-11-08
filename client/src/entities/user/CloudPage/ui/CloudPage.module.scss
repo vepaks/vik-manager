@@ -1,22 +1,16 @@
 .CloudPage {
   margin-top: 20px;
-  &_btns {
-    display: flex;
-  }
+}
 
-  &_create {
-    margin-left: 10px;
-  }
+.btns {
+  display: flex;
+  margin: 0 4em 0;
+}
+
+.back {
 
 }
 
-.CloudPage_btns {
-}
-
-.CloudPage_back {
-
-}
-
-.CloudPage_create {
-
+.create {
+  margin-left: 10px;
 }

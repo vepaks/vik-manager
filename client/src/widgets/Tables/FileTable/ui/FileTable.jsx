@@ -12,23 +12,20 @@ export const FileTable = ({className}) => {
     ].map(file => <File key={file._id}/> )
     return (
         <div className={classNames(cls.Table, {}, [className])}>
-            <div className={classNames(cls.table, {}, [className])}>
-
-                <div className={classNames(cls.row, {}, [className, "header"])}>
-                    <div className={classNames(cls.cell, {}, [className, "row"])}>
-                    </div>
-                    <div className={classNames(cls.cell, {}, [className, "row"])}>
-                      Название
-                    </div>
+                <div className={classNames(cls.header, {}, [className])}>
                     <div className={classNames(cls.cell, {}, [className])}>
+                    </div>
+                    <div className={classNames(cls.name, {}, [className])}>
+                     Документация
+                    </div>
+                    <div className={classNames(cls.date, {}, [className])}>
                         Дата
                     </div>
-                    <div className={classNames(cls.cell, {}, [className])}>
+                    <div className={classNames(cls.size, {}, [className])}>
                      Размер
                     </div>
                 </div>
-                {files}
-            </div>
+            {files}
         </div>
     );
 };
