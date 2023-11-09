@@ -13,13 +13,13 @@ export const Data = ({className}) => {
         <div className={classNames(cls.Data, {}, [className])}>
             <img src={dataLogo} alt="logo" className={classNames(cls.img, {}, [])}/>
             <div >
-                Име на файла
+                гр.Видин ул.Папазов, бл.15, бх.Б, ет.3, ап.14
             </div>
             <div className={classNames(cls.date, {}, [])}>
-                25.11.2023
+                10.11.2023
             </div>
             <div className={classNames(cls.size, {}, [])}>
-                5гб
+               15 25 6985
             </div>
             <Button className={classNames(cls.download, {}, [])} >Подробно</Button>
             <Button  className={classNames(cls.delete, {}, [])} >Напомни</Button>

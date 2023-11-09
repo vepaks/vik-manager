@@ -13,6 +13,9 @@ export const Navbar = ({ className }) => {
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <ThemeSwitcher />
+        <div className={classNames(cls.header, {}, [className])}>
+            {/*<h1  >ВиК Manager Pro Max</h1>*/}
+        </div>
       <div className={cls.links}>
         {isAuth ? (
           <div>
@@ -21,14 +24,14 @@ export const Navbar = ({ className }) => {
               to="/"
               className={cls.mainLink}
             >
-              MAIN
+              ПОТРЕБИТЕЛИ
             </AppLink>
             <AppLink
               theme={AppLinkTheme.SECONDARY}
               to="/cloud"
               className={cls.mainLink}
             >
-              CLOUD
+              ДОКУМЕНТАЦИЯ
             </AppLink>
             <AppLink
               onClick={() => {
@@ -38,7 +41,7 @@ export const Navbar = ({ className }) => {
               theme={AppLinkTheme.SECONDARY}
               className={cls.mainLink}
             >
-              LOGOUT
+              ИЗЛЕЗ
             </AppLink>
           </div>
         ) : (
