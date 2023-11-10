@@ -29,7 +29,12 @@ app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/files", fileRouter);
 
-const start = () => {
+
+startServer();
+startBot();
+
+// client server
+const startServer = () => {
   try {
     mongoose.connect(`${dbUrl}`);
     app.listen(PORT, () => {
@@ -40,19 +45,17 @@ const start = () => {
   }
 };
 
+// telegram-bot server
 const checker = async (chatId) => {
   const bd = await Address.findOne({ chatId: chatId }).exec();
   return bd;
 };
 
-const obj = {
+//
+const addressModelObject = {
   ref: "",
   address: "",
-  data: []
-}
-
-const recordRef = async (chatId) => {
-  await bot.sendMessage(chatId, "Въведи референтен номер");
+  data: [],
 };
 
 const startBot = async () => {
@@ -78,10 +81,9 @@ const startBot = async () => {
       } else if (msg.text == "REF NUMBER") {
         if (msg.text == "REF NUMBER") {
           bot.on("message", async (msg) => {
-
-            obj.ref = msg.text
+            addressModelObject.ref = msg.text;
             console.log(msg.text);
-            console.log(obj);
+            console.log(addressModelObject);
 
             await bot.sendMessage(
               msg.chat.id,
@@ -94,16 +96,14 @@ const startBot = async () => {
               },
             );
             bot.removeListener("message");
-
           });
         }
       } else if (msg.text == "ADDRESS:") {
         if (msg.text == "ADDRESS:") {
           bot.on("message", async (msg) => {
-
-            obj.address = msg.text
+            addressModelObject.address = msg.text;
             console.log(msg.text);
-            console.log(obj);
+            console.log(addressModelObject);
 
             await bot.sendMessage(
               msg.chat.id,
@@ -121,151 +121,44 @@ const startBot = async () => {
       } else if (msg.text == "DATA") {
         if (msg.text == "DATA") {
           bot.on("message", async (msg) => {
-
-            obj.data.push(msg.text)
+            addressModelObject.data.push(msg.text);
             console.log(msg.text);
-            console.log(obj);
+            console.log(addressModelObject);
 
             await bot.sendMessage(
-                msg.chat.id,
-                `Натиснете SEND DATA, за да изпратите данните на ВиК служителя.`,
-                {
-                  reply_markup: {
-                    keyboard: [["SEND DATA"]],
-                    resize_keyboard: true,
-                  },
+              msg.chat.id,
+              `Натиснете SEND DATA, за да изпратите данните на ВиК служителя.`,
+              {
+                reply_markup: {
+                  keyboard: [["SEND DATA"]],
+                  resize_keyboard: true,
                 },
+              },
             );
             bot.removeListener("message");
           });
         }
-      }  else if (msg.text == "SEND DATA") {
+      } else if (msg.text == "SEND DATA") {
+        await bot.sendMessage(
+          msg.chat.id,
+          `Благодаря! За нови данни просто изпратете съобщение.`,
+          {
+            reply_markup: {
+              remove_keyboard: true,
+            },
+          },
+        );
 
-        await bot.sendMessage(msg.chat.id, `Благодаря! За нови данни просто изпратете съобщение.`,
-            {
-
-              reply_markup: {
-
-                remove_keyboard: true
-
-              }
-
-            });
-
-
-          bot.on("message", async (msg) => {
-
-            obj.data.push(msg.text)
-            console.log(msg.text);
-            console.log(obj);
-
-
-          });
-
+        bot.on("message", async (msg) => {
+          addressModelObject.data.push(msg.text);
+          console.log(msg.text);
+          console.log(addressModelObject);
+        });
       }
     } catch (error) {
       console.log(error);
     }
   });
-
-  function isUserAllowed(userId) {
-    // Implement your logic to determine if the user is allowed
-    // You might check against a list of allowed users or other criteria
-    // Return true if allowed, false otherwise
-    return false;
-  }
-
-
-  // bot.on("message", async (msg) => {
-  //   const text = msg.text;
-  //   const chatId = msg.chat.id;
-  //
-  //   if (!(await checker(chatId))) {
-  //     await Address.create({ chatId: chatId });
-  //   }
-  //
-  //   if (text === "/start") {
-  //     await bot.sendMessage(msg.chat.id, `Меню бота`, {
-  //       reply_markup: {
-  //         keyboard: [
-  //           ["⭐️ Картинка", { text: "Видео" }],
-  //           ["⭐️ Аудио", "⭐️ Голосовое сообщение"],
-  //           [{ text: "⭐️ Контакт", request_contact: true }, "⭐️ Геолокация"],
-  //           ["❌ Закрыть меню"],
-  //         ],
-  //         resize_keyboard: true,
-  //       },
-  //     });
-  //   }
-  // });
-
-  //
-  // bot.on("text", async (msg) => {
-  //  const chatId = msg.chat.id;
-  //
-  //   if (msg.text == "⭐️ Видео") {
-  //     bot.sendMessage(chatId, `Въведете номера`, {
-  //       reply_to_message_id: msg.message_id,
-  //     });
-  //   } else if (msg.text == "⭐️ Аудио") {
-  //     bot.sendMessage(chatId, `Въведете адрес`, {
-  //       reply_to_message_id: msg.message_id,
-  //     });
-  //   }
-  //
-  //   bot.on("text", async (msg) => {
-  //     console.log(msg.text);
-  //     console.log("ref works");
-  //     //     тук е фунцията за взимане на референтния номер и закачането му към Address model
-  //   });
-  //
-  //
-  //
-  //
-  // });
-  //
-  // bot.on("callback_query", async (msg) => {
-  //   //  Извличаме необходимата информация от телеграм
-  //   const chatId = msg.message.chat.id;
-  //   const data = msg.data;
-  //   const username = msg.from.first_name;
-  //
-  //   if (data == "/ref") {
-  //     console.log(chatId, data, username);
-  //     bot.sendMessage(chatId, `Въведете номера`);
-  //     bot.on("text", async (msg) => {
-  //       bot.sendMessage(
-  //         chatId,
-  //         `Благодаря, а сега попълнете адрес`,
-  //         gameOptions,
-  //       );
-  //       console.log(msg.text);
-  //       console.log("ref works");
-  //       //     тук е фунцията за взимане на референтния номер и закачането му към Address model
-  //     });
-  //   }
-  //
-  //   if (data == "/address") {
-  //     console.log(chatId, data, username);
-  //
-  //     bot.on("text", async (msg) => {
-  //       console.log(msg.text);
-  //       console.log("address works");
-  //       //     тук е фунцията за взимане и попълване на адреса в Address model
-  //     });
-  //   }
-  //
-  //   if (data == "/data") {
-  //     console.log(chatId, data, username);
-  //
-  //     bot.on("text", async (msg) => {
-  //       console.log(msg.text);
-  //       console.log("data works");
-  //       //     тук е фунцията за взимане и попълване на данните от водомерите и пушването им в Address model
-  //     });
-  //   }
-  // });
 };
 
-start();
-startBot();
+
