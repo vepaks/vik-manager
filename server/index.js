@@ -45,16 +45,15 @@ const checker = async (chatId) => {
   return bd;
 };
 
+const obj = {
+  ref: "",
+  address: "",
+  data: []
+}
 
 const recordRef = async (chatId) => {
-
-  await bot.sendMessage(
-      chatId,
-      "Въведи референтен номер",
-  );
+  await bot.sendMessage(chatId, "Въведи референтен номер");
 };
-
-
 
 const startBot = async () => {
   bot.setMyCommands([
@@ -63,83 +62,209 @@ const startBot = async () => {
     { command: "/data", description: "Попъни данни" },
   ]);
 
-  bot.on("message", async (msg) => {
+  bot.on("text", async (msg) => {
+    try {
+      if (msg.text == "/start") {
+        await bot.sendMessage(
+          msg.chat.id,
+          `Здравейте. Моля натиснете върху REF NUMBER, за да попълните реферетният номер, който сте получили.`,
+          {
+            reply_markup: {
+              keyboard: [["REF NUMBER"]],
+              resize_keyboard: true,
+            },
+          },
+        );
+      } else if (msg.text == "REF NUMBER") {
+        if (msg.text == "REF NUMBER") {
+          bot.on("message", async (msg) => {
 
-    const text = msg.text;
-    const chatId = msg.chat.id;
+            obj.ref = msg.text
+            console.log(msg.text);
+            console.log(obj);
+
+            await bot.sendMessage(
+              msg.chat.id,
+              `Благодаря, а сега натиснете ADDRESS, за да попълните адреса си.`,
+              {
+                reply_markup: {
+                  keyboard: [["ADDRESS:"]],
+                  resize_keyboard: true,
+                },
+              },
+            );
+            bot.removeListener("message");
+
+          });
+        }
+      } else if (msg.text == "ADDRESS:") {
+        if (msg.text == "ADDRESS:") {
+          bot.on("message", async (msg) => {
+
+            obj.address = msg.text
+            console.log(msg.text);
+            console.log(obj);
+
+            await bot.sendMessage(
+              msg.chat.id,
+              `Благодаря, а сега натиснете DATA, за да попълните данните от водомера.`,
+              {
+                reply_markup: {
+                  keyboard: [["DATA"]],
+                  resize_keyboard: true,
+                },
+              },
+            );
+            bot.removeListener("message");
+          });
+        }
+      } else if (msg.text == "DATA") {
+        if (msg.text == "DATA") {
+          bot.on("message", async (msg) => {
+
+            obj.data.push(msg.text)
+            console.log(msg.text);
+            console.log(obj);
+
+            await bot.sendMessage(
+                msg.chat.id,
+                `Натиснете SEND DATA, за да изпратите данните на ВиК служителя.`,
+                {
+                  reply_markup: {
+                    keyboard: [["SEND DATA"]],
+                    resize_keyboard: true,
+                  },
+                },
+            );
+            bot.removeListener("message");
+          });
+        }
+      }  else if (msg.text == "SEND DATA") {
+
+        await bot.sendMessage(msg.chat.id, `Благодаря! За нови данни просто изпратете съобщение.`,
+            {
+
+              reply_markup: {
+
+                remove_keyboard: true
+
+              }
+
+            });
 
 
-    if (!(await checker(chatId))) {
-      await Address.create({ chatId: chatId, });
+          bot.on("message", async (msg) => {
+
+            obj.data.push(msg.text)
+            console.log(msg.text);
+            console.log(obj);
+
+
+          });
+
+      }
+    } catch (error) {
+      console.log(error);
     }
-
-    if (text === "/start") {
-      await bot.sendSticker(
-        chatId,
-        "https://tlgrm.eu/_/stickers/385/a4b/385a4bf5-3feb-3008-be6e-1074767a1f3d/7.webp",
-      );
-      return bot.sendMessage(chatId, `Моля първо въведете референтен номер!`, gameOptions);
-    }
-
-    // if (text === "/ref") {
-    //   recordRef(chatId);
-    // }
-
-    if (text === "/data") {
-      await bot.sendSticker(
-          chatId,
-          "https://tlgrm.eu/_/stickers/385/a4b/385a4bf5-3feb-3008-be6e-1074767a1f3d/7.webp",
-      );
-      return bot.sendMessage(chatId, `Моля първо въведете референтен номер!`);
-    }
-
   });
 
-
-  bot.on("callback_query", async (msg) => {
-    //  Извличаме необходимата информация от телеграм
-    const chatId = msg.message.chat.id;
-    const data = msg.data;
-    const username = msg.from.first_name;
-    if (data == "/ref") {
-      console.log(chatId, data, username)
-      bot.sendMessage(chatId, `Въведете номера`);
-      bot.on('text', async msg => {
-        bot.sendMessage(chatId, `Благодаря, а сега попълнете адрес`, gameOptions);
-        console.log(msg.text)
-        console.log('ref works')
-      //     тук е фунцията за взимане на референтния номер и закачането му към Address model
-      })
-    }
-
-    if (data == "/address") {
-      console.log(chatId, data, username)
-
-      bot.on('text', async msg => {
-        console.log(msg.text)
-        console.log('address works')
-        //     тук е фунцията за взимане и попълване на адреса в Address model
-      })
-    }
+  function isUserAllowed(userId) {
+    // Implement your logic to determine if the user is allowed
+    // You might check against a list of allowed users or other criteria
+    // Return true if allowed, false otherwise
+    return false;
+  }
 
 
-    if (data == "/data") {
-      console.log(chatId, data, username)
+  // bot.on("message", async (msg) => {
+  //   const text = msg.text;
+  //   const chatId = msg.chat.id;
+  //
+  //   if (!(await checker(chatId))) {
+  //     await Address.create({ chatId: chatId });
+  //   }
+  //
+  //   if (text === "/start") {
+  //     await bot.sendMessage(msg.chat.id, `Меню бота`, {
+  //       reply_markup: {
+  //         keyboard: [
+  //           ["⭐️ Картинка", { text: "Видео" }],
+  //           ["⭐️ Аудио", "⭐️ Голосовое сообщение"],
+  //           [{ text: "⭐️ Контакт", request_contact: true }, "⭐️ Геолокация"],
+  //           ["❌ Закрыть меню"],
+  //         ],
+  //         resize_keyboard: true,
+  //       },
+  //     });
+  //   }
+  // });
 
-      bot.on('text', async msg => {
-        console.log(msg.text)
-        console.log("data works")
-        //     тук е фунцията за взимане и попълване на данните от водомерите и пушването им в Address model
-      })
-    }
-
-
-  });
-
-
-
-
-
+  //
+  // bot.on("text", async (msg) => {
+  //  const chatId = msg.chat.id;
+  //
+  //   if (msg.text == "⭐️ Видео") {
+  //     bot.sendMessage(chatId, `Въведете номера`, {
+  //       reply_to_message_id: msg.message_id,
+  //     });
+  //   } else if (msg.text == "⭐️ Аудио") {
+  //     bot.sendMessage(chatId, `Въведете адрес`, {
+  //       reply_to_message_id: msg.message_id,
+  //     });
+  //   }
+  //
+  //   bot.on("text", async (msg) => {
+  //     console.log(msg.text);
+  //     console.log("ref works");
+  //     //     тук е фунцията за взимане на референтния номер и закачането му към Address model
+  //   });
+  //
+  //
+  //
+  //
+  // });
+  //
+  // bot.on("callback_query", async (msg) => {
+  //   //  Извличаме необходимата информация от телеграм
+  //   const chatId = msg.message.chat.id;
+  //   const data = msg.data;
+  //   const username = msg.from.first_name;
+  //
+  //   if (data == "/ref") {
+  //     console.log(chatId, data, username);
+  //     bot.sendMessage(chatId, `Въведете номера`);
+  //     bot.on("text", async (msg) => {
+  //       bot.sendMessage(
+  //         chatId,
+  //         `Благодаря, а сега попълнете адрес`,
+  //         gameOptions,
+  //       );
+  //       console.log(msg.text);
+  //       console.log("ref works");
+  //       //     тук е фунцията за взимане на референтния номер и закачането му към Address model
+  //     });
+  //   }
+  //
+  //   if (data == "/address") {
+  //     console.log(chatId, data, username);
+  //
+  //     bot.on("text", async (msg) => {
+  //       console.log(msg.text);
+  //       console.log("address works");
+  //       //     тук е фунцията за взимане и попълване на адреса в Address model
+  //     });
+  //   }
+  //
+  //   if (data == "/data") {
+  //     console.log(chatId, data, username);
+  //
+  //     bot.on("text", async (msg) => {
+  //       console.log(msg.text);
+  //       console.log("data works");
+  //       //     тук е фунцията за взимане и попълване на данните от водомерите и пушването им в Address model
+  //     });
+  //   }
+  // });
 };
 
 start();
