@@ -30,8 +30,6 @@ app.use("/api/auth", authRouter);
 app.use("/api/files", fileRouter);
 
 
-startServer();
-startBot();
 
 // client server
 const startServer = () => {
@@ -82,7 +80,8 @@ const startBot = async () => {
         if (msg.text == "REF NUMBER") {
           bot.on("message", async (msg) => {
             addressModelObject.ref = msg.text;
-            console.log(msg.text);
+
+            console.log(parentUser);
             console.log(addressModelObject);
 
             await bot.sendMessage(
@@ -101,10 +100,11 @@ const startBot = async () => {
       } else if (msg.text == "ADDRESS:") {
         if (msg.text == "ADDRESS:") {
           bot.on("message", async (msg) => {
+            const parentUser = await User.findOne({ _id: ref });
             addressModelObject.address = msg.text;
             console.log(msg.text);
             console.log(addressModelObject);
-
+            console.log(parentUser.email)
             await bot.sendMessage(
               msg.chat.id,
               `Благодаря, а сега натиснете DATA, за да попълните данните от водомера.`,
@@ -161,4 +161,5 @@ const startBot = async () => {
   });
 };
 
-
+startServer();
+startBot();
