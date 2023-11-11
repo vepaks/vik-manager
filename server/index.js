@@ -29,8 +29,6 @@ app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/files", fileRouter);
 
-
-
 // client server
 const startServer = () => {
   try {
@@ -97,7 +95,7 @@ const startBot = async () => {
       } else if (msg.text == "ADDRESS:") {
         if (msg.text == "ADDRESS:") {
           bot.on("message", async (msg) => {
-            const ref = addressModelObject.ref
+            const ref = addressModelObject.ref;
             // const parentUser = await User.findOne({ _id: ref });
             addressModelObject.address = msg.text;
             console.log(msg.text);
@@ -133,17 +131,22 @@ const startBot = async () => {
           });
         }
       } else if (msg.text == "SEND DATA") {
+        const { ref, address, data } = addressModelObject;
+        const refUser = await User.findOne({ _id: ref });
 
-        const { ref, address, data } = addressModelObject
-        const currAddress = await Address.findOne({chatId: msg.chat.id})
-
-        if (await (!currAddress)) {
           await Address.create({
             chatId: msg.chat.id,
-            ref,
+            parent: refUser._id,
             address,
-            data
+            data,
           });
+
+        const currAddress = await Address.findOne({ chatId: msg.chat.id });
+
+        if(currAddress) {
+          refUser.addresses.push(currAddress._id);
+          await refUser.save();
+
         }
 
         await bot.sendMessage(
@@ -151,18 +154,17 @@ const startBot = async () => {
           `Благодаря! За нови данни просто изпратете съобщение и натиснете SEND NEW DATA.`,
           {
             reply_markup: {
-              remove_keyboard: true
+              remove_keyboard: true,
             },
           },
         );
 
         bot.on("message", async (msg) => {
-          const currAddress = await Address.findOne({chatId: msg.chat.id})
-          const text = msg.text
-          currAddress.data.push(text)
-          await currAddress.save()
-        })
-
+          const currAddress = await Address.findOne({ chatId: msg.chat.id });
+          const text = msg.text;
+          currAddress.data.push(text);
+          await currAddress.save();
+        });
       }
     } catch (error) {
       console.log(error);
