@@ -12,13 +12,13 @@ export const File = ({file}) => {
       <div className={classNames(cls.File, {}, [])}>
           <img src={dirLogo} alt="logo" className={classNames(cls.img, {}, [])}/>
           <div >
-                Име на файла
+              {file.name}
           </div>
           <div className={classNames(cls.date, {}, [])}>
-              25.11.2023
+              {file.date}
           </div>
           <div className={classNames(cls.size, {}, [])}>
-              5гб
+              {file.size}
           </div>
            <button className={classNames(cls.download, {}, [])} >download</button>
           <button  className={classNames(cls.delete, {}, [])} >delete</button>

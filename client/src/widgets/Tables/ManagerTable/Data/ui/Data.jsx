@@ -4,16 +4,16 @@ import dataLogo from "../../../../../shared/assets/icons/dataLogo.svg";
 import {Button} from "../../../../../shared/ui/Button";
 // import {useDispatch, useSelector} from "react-redux";
 
-export const Data = ({className}) => {
+export const Data = ({data}) => {
 
     // const dispatch = useDispatch()
     // const currentDir = useSelector(state => state.files.currentDir)
 
     return (
-        <div className={classNames(cls.Data, {}, [className])}>
+        <div className={classNames(cls.Data, {}, [])}>
             <img src={dataLogo} alt="logo" className={classNames(cls.img, {}, [])}/>
             <div >
-                гр.Видин ул.Папазов, бл.15, бх.Б, ет.3, ап.14
+                {data.address}
             </div>
             <div className={classNames(cls.date, {}, [])}>
                 10.11.2023
