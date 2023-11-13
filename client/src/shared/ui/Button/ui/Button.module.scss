@@ -4,8 +4,13 @@
 
 .clear {
     padding: 0;
-    margin: 0;
     border: none;
     background: none;
+    outline: none;
+}
+
+.navbar {
+    padding: 0;
+    background: deepskyblue;
     outline: none;
 }

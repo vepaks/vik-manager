@@ -3,6 +3,7 @@ import cls from './Button.module.scss'
 
 export class ThemeButton {
     static CLEAR = new ThemeButton('clear');
+    static NAV = new ThemeButton('navbar');
     constructor(Button) {
         this.Button = Button;
     }

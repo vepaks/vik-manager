@@ -14,6 +14,7 @@ const corsMiddleWare = require("./middleware/cors.middleware");
 
 const authRouter = require("./routes/auth.routes");
 const fileRouter = require("./routes/file.routes");
+const dataRouter = require("./routes/data.routes")
 
 //Telegram server
 // създаваме променлива за работа с API
@@ -28,6 +29,7 @@ app.use(corsMiddleWare);
 app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/files", fileRouter);
+app.use("/api/data", dataRouter);
 
 // client server
 const startServer = () => {

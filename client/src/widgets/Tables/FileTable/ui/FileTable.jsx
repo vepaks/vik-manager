@@ -16,8 +16,6 @@ export const FileTable = ({className}) => {
             <div className={classNames(cls.loader, {}, [className])}>Документация не е намерена</div>
         )
     }
-
-
     return (
         <div className={classNames(cls.Table, {}, [className])}>
                 <div className={classNames(cls.header, {}, [className])}>

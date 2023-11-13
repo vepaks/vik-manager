@@ -14,54 +14,20 @@ export const ManagerTable = ({className}) => {
         date: "11.11.2023",
       },
       {
-        _id: 1,
+        _id: 2,
         address: "жк.Дружба 14, вг.Б, ет.3, ап.14",
         type: "dir",
         size: "3gb",
         date: "11.11.2023",
       },
       {
-        _id: 1,
+        _id: 3,
         address: "жк.Дружба 14, вг.Б, ет.3, ап.14",
         type: "dir",
         size: "3gb",
         date: "11.11.2023",
       },
-      {
-        _id: 1,
-        address: "жк.Дружба 14, вг.Б, ет.3, ап.14",
-        type: "dir",
-        size: "3gb",
-        date: "11.11.2023",
-      },
-      {
-        _id: 1,
-        address: "жк.Дружба 14, вг.Б, ет.3, ап.14",
-        type: "dir",
-        size: "3gb",
-        date: "11.11.2023",
-      },
-      {
-        _id: 1,
-        address: "жк.Дружба 14, вг.Б, ет.3, ап.14",
-        type: "dir",
-        size: "3gb",
-        date: "11.11.2023",
-      },
-      {
-        _id: 1,
-        address: "жк.Дружба 14, вг.Б, ет.3, ап.14",
-        type: "dir",
-        size: "3gb",
-        date: "11.11.2023",
-      },
-      {
-        _id: 1,
-        address: "жк.Дружба 14, вг.Б, ет.3, ап.14",
-        type: "dir",
-        size: "3gb",
-        date: "11.11.2023",
-      },
+
     ].map((data) => <Data data={data} key={data._id} />);
 
     // if (files.length === 0) {
