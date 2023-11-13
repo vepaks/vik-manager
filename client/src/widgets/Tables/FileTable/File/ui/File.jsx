@@ -1,12 +1,12 @@
 import { classNames } from "../../../../../shared/lib/classNames/classNames";
 import cls from "../ui/File.module.scss";
-import {useDispatch, useSelector} from "react-redux";
+// import {useDispatch, useSelector} from "react-redux";
 import dirLogo from "../../../../../shared/assets/icons/dirLogo.svg"
 
 export const File = ({file}) => {
 
-    const dispatch = useDispatch()
-    const currentDir = useSelector(state => state.files.currentDir)
+    // const dispatch = useDispatch()
+    // const currentDir = useSelector(state => state.files.currentDir)
 
   return (
       <div className={classNames(cls.File, {}, [])}>

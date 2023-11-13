@@ -3,22 +3,19 @@ import {ManagerTable} from "../../../widgets/Tables";
 import {useDispatch, useSelector} from "react-redux";
 import {getData} from "../../../features/data/data";
 
-const LoginPage = () => {
+const MainPage = () => {
 
     const dispatch = useDispatch()
-    const data = useSelector((state) => state.data )
-
-
+    const data = useSelector(state => state.data.data)
 
     useEffect(() => {
-        dispatch(getData(data))
-    }, [data, dispatch]);
+        dispatch(getData())
+    }, []);
 
     return (
         <div>
             <ManagerTable/>
-            <h1>{data}</h1>
         </div>
     );
 };
-export default LoginPage;
+export default MainPage;

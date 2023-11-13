@@ -2,12 +2,8 @@ import {classNames} from "../../../../../shared/lib/classNames/classNames";
 import cls from './Data.module.scss'
 import dataLogo from "../../../../../shared/assets/icons/dataLogo.svg";
 import {Button, ThemeButton} from "../../../../../shared/ui/Button";
-import {useDispatch, useSelector} from "react-redux";
 
 export const Data = ({data}) => {
-
-    const dispatch = useDispatch()
-    const addresses = useSelector(state => state.addresses)
 
     return (
         <div className={classNames(cls.Data, {}, [])}>
@@ -16,10 +12,10 @@ export const Data = ({data}) => {
                 {data.address}
             </div>
             <div className={classNames(cls.date, {}, [])}>
-                10.11.2023
+                {data.date}
             </div>
-            <div className={classNames(cls.size, {}, [])}>
-               15 25 6985
+            <div className={classNames(cls.size, {}, ["red"])}>
+                {data.data[data.data.length - 1]}
             </div>
             <Button theme={ThemeButton.NAV} className={classNames(cls.download, {}, [])} >Подробно</Button>
             <Button  className={classNames(cls.delete, {}, [])} >Напомни</Button>

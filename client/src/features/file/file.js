@@ -1,4 +1,5 @@
 import axios from "axios";
+import {setFiles} from "../../app/reducers/fileReducer";
 
 export function getFiles(dirId) {
   return async (dispatch) => {
@@ -11,7 +12,7 @@ export function getFiles(dirId) {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         },
       );
-      console.log(response.data)
+      dispatch(setFiles(response.data))
     } catch (e) {
       console.log(e.response.data.message);
     }
