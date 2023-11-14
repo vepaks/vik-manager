@@ -6,6 +6,7 @@ import {useSelector} from "react-redux";
 export const ManagerTable = ({className}) => {
 
     const allData = useSelector(state => state.data.data)
+    console.log(allData)
 
     return (
         <div className={classNames(cls.ManagerTable, {}, [])}>
@@ -22,7 +23,7 @@ export const ManagerTable = ({className}) => {
                     Данни
                 </div>
             </div>
-            {allData && allData.map( data => <Data key={data.id} data={data} />)}
+            {allData && allData.map( data => <Data key={data._id} data={data} />)}
         </div>
     );
 };
