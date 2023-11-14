@@ -103,4 +103,4 @@ npm start
 
 ## Architecture
 
-![fsd](<img src="https://github.com/vepaks/vik-manager/blob/main/public/img/fsd.png" alt="fsd" height="600"/>)
+![img](https://github.com/vepaks/vik-manager/blob/main/public/img/fsd.png)
