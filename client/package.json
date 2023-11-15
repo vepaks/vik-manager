@@ -23,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "unit": "jest --config ./config/jest/jest.config.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,6 +45,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "babel-jest": "^29.7.0",
+    "jest": "^27.5.1",
     "node-sass": "^7.0.3",
     "prettier": "3.0.3"
   }

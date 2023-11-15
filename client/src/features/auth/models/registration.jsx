@@ -9,7 +9,6 @@ export const registration  = async (email, password) => {
        })
        console.log(response.status)
        console.log(response.data.message)
-       redirectToLogin()
    } catch (e) {
 
        console.log(e.response.status)
