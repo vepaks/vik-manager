@@ -5,3 +5,9 @@ describe("classNames", () => {
     expect(classNames("cls", {}, [])).toBe("cls");
   });
 });
+
+describe("classNames", () => {
+  test("test", () => {
+    expect(classNames("cls", {red: true}, [])).toBe("cls red");
+  });
+});
