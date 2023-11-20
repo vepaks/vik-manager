@@ -77,9 +77,6 @@ router.post("/login",
        avatar: user.avatar
      }
     })
-
-
-
   } catch (e) {
     console.log(e);
   }
@@ -105,7 +102,5 @@ router.get("/auth", authMiddleware,
         console.log(e);
       }
     });
-
-
 
 module.exports = router;

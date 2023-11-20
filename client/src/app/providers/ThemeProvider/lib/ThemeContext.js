@@ -1,19 +1,17 @@
-import {createContext} from "react";
+import { createContext } from "react";
 
 export class Theme {
-    static DARK = new Theme('dark');
-    static LIGHT = new Theme('light');
+  static DARK = new Theme("dark");
+  static LIGHT = new Theme("light");
 
-    constructor(theme) {
-        this.theme = theme;
-    }
-    toString() {
-        return this.theme;
-    }
+  constructor(theme) {
+    this.theme = theme;
+  }
+  toString() {
+    return this.theme;
+  }
 }
 
-export const ThemeContext = createContext({
+export const ThemeContext = createContext({});
 
-})
-
-export const LOCAL_STORAGE_THEME_KEY = 'theme'
+export const LOCAL_STORAGE_THEME_KEY = "theme";

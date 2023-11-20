@@ -14,10 +14,15 @@ const ThemeProvider= ({ children }) => {
     [theme],
   );
   return (
+
+
     <ThemeContext.Provider value={defaultProps}>
       {children}
     </ThemeContext.Provider>
   );
+
+
+
 };
 
 export default ThemeProvider;

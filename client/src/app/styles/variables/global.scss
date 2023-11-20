@@ -1,7 +1,5 @@
-
-
 :root {
-  --font-family-main: 'Play', sans-serif;;
+  --font-family-main: "Play", sans-serif;
 
   --font-size-m: 16px;
   --font-line-m: 24px;
@@ -13,4 +11,10 @@
 
   //Размери
   --navbar-height: 50px;
+
+  //  z - Индекси
+  --modal-z-index: 10;
+
+  //Цветове
+  --overlay-color: rgba(0, 0, 0, 0.6);
 }
