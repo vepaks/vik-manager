@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-// import {LoginPage} from "../pages/LoginPage";
+import React, { useEffect } from "react";
 import { classNames } from "../shared/lib/classNames/classNames";
 import { useTheme } from "./providers/ThemeProvider";
 import { Navbar } from "../widgets/Navbar";
@@ -13,7 +12,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(auth());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div

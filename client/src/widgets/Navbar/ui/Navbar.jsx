@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../app/reducers/userReducer";
 import { Modal } from "../../../shared/ui/Modal/Modal";
 import React, {useCallback, useState} from "react";
-import {Button, ThemeButton} from "../../../shared/ui/Button";
 import {LoginForm} from "../../../features/auth";
 
 export const Navbar = ({ className }) => {
