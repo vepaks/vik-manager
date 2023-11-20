@@ -11,6 +11,11 @@ export const Input = memo((props) => {
       ...otherProps
   } = props;
 
+    const onChangeHandler = (e) => {
+        onChange?.(e.target.value);
+    };
+
+
   return (
     <div
       className={classNames(cls.Input, {}, [
@@ -18,7 +23,7 @@ export const Input = memo((props) => {
       ])}
     >
       <input
-        onChange={(event) => event.target.value}
+        onChange={onChangeHandler}
         value={value}
         type={type}
       />
