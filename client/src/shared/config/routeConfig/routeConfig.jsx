@@ -1,4 +1,4 @@
-import { CloudPage } from "../../../entities/user/CloudPage";
+import { CloudPage } from "../../../pages/CloudPage";
 import { MainPage } from "../../../pages/MainPage";
 
 export class AppRoutes {

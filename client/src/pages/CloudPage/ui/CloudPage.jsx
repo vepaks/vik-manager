@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getFiles } from "../../../../features/file/file";
-import { classNames } from "../../../../shared/lib/classNames/classNames";
+import { getFiles } from "../../../features/file/file";
+import { classNames } from "../../../shared/lib/classNames/classNames";
 import cls from "./CloudPage.module.scss";
-import { FileTable } from "../../../../widgets/Tables/index";
-import { Button } from "../../../../shared/ui/Button";
+import { FileTable } from "../../../widgets/Tables";
+import { Button } from "../../../shared/ui/Button";
 
 export const CloudPage = ({ className }) => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export const CloudPage = ({ className }) => {
 
   useEffect(() => {
     dispatch(getFiles(currentDir));
-  }, [currentDir]);
+  }, [currentDir, dispatch]);
 
   return (
     <div className={classNames(cls.CloudPage, {}, [className])}>
