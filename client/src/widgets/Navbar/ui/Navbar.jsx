@@ -7,6 +7,7 @@ import { logout } from "../../../app/reducers/userReducer";
 import { Modal } from "../../../shared/ui/Modal/Modal";
 import React, {useCallback, useState} from "react";
 import {LoginForm} from "../../../features/auth";
+import {LoginModal} from "../../../features/auth/ui";
 
 export const Navbar = ({ className }) => {
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -15,21 +16,29 @@ export const Navbar = ({ className }) => {
 
   const [isAuthModal, setIsAuthModal] = useState(false)
 
-    const onToggleModal = useCallback(() => {
-        setIsAuthModal((e) => !e)
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false)
     }, [])
 
 
-  return (
+    const onShowModal = useCallback(() => {
+        setIsAuthModal(true)
+    }, [])
+
+
+
+    return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <ThemeSwitcher />
-      <Modal isOpen={isAuthModal} onClose={setIsAuthModal}>
-        <LoginForm/>
-      </Modal>
+      <LoginModal
+        isOpen={isAuthModal}
+        onClose={onCloseModal}
+
+      />
       <div className={classNames(cls.header, {}, [className])}>
         {/*<h1  >ВиК Manager Pro Max</h1>*/}
       </div>
-      <div className={cls.links}>
+        <div className={cls.links}>
         {isAuth ? (
           <div>
             <AppLink
@@ -68,7 +77,7 @@ export const Navbar = ({ className }) => {
             <AppLink
               theme={AppLinkTheme.SECONDARY}
               className={cls.mainLink}
-              onClick={onToggleModal}
+              onClick={onShowModal}
             >
               LOGIN
             </AppLink>
