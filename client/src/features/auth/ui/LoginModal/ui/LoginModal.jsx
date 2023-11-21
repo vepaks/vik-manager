@@ -5,12 +5,16 @@ import { LoginForm } from "../../LoginForm";
 
 export const LoginModal = ({ className, isOpen, onClose }) => {
   return (
-    <Modal
-        className={classNames(cls.LoginModal, {}, [className])}
-        isOpen={isOpen}
-        onClose={onClose}
-    >
-      <LoginForm />
-    </Modal>
+      <div>
+
+        <Modal
+            className={classNames(cls.LoginModal, {}, [className])}
+            isOpen={isOpen}
+            onClose={onClose}
+        >
+          <LoginForm />
+        </Modal>
+      </div>
+
   );
 };

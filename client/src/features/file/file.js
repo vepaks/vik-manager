@@ -1,5 +1,6 @@
 import axios from "axios";
 import {setFiles} from "../../app/reducers/fileReducer";
+import {setError} from "../../app/reducers/errorReducer";
 
 export function getFiles(dirId) {
   return async (dispatch) => {
@@ -14,6 +15,7 @@ export function getFiles(dirId) {
       );
       dispatch(setFiles(response.data))
     } catch (e) {
+      dispatch(setError(e.response.data.message));
       console.log(e.response.data.message);
     }
   };

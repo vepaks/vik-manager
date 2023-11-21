@@ -4,11 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../../../features/data/data";
 import { Button } from "../../../shared/ui/Button";
 import {Input} from "../../../shared/ui/Input";
+import {setError} from "../../../app/reducers/errorReducer";
+import {LoginModal} from "../../../features/auth/ui";
 
 const MainPage = () => {
 
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.user.isAuth);
+  const error = useSelector(state => state.errors.error)
+  console.log(error)
 
   const [value, setValue] = useState('')
 
@@ -23,11 +27,7 @@ const MainPage = () => {
 
   if (!isAuth) {
     return <div>
-      нямате достъп
-      <Input
-          value={value}
-          onChange={onChange}
-      />
+      <LoginModal isOpen={error}/>
     </div>;
   } else {
     return (

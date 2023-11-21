@@ -13,8 +13,8 @@ export const Input = memo((props) => {
 
     const onChangeHandler = (e) => {
         onChange?.(e.target.value);
+        console.log(e.target.value)
     };
-
 
   return (
     <div
