@@ -1,5 +1,4 @@
 import axios from "axios";
-import {redirectToLogin} from "../../../shared/lib/redirects/toLogin/redirectToLogin";
 
 export const registration  = async (email, password) => {
    try {

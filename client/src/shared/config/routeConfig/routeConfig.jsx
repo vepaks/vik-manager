@@ -1,5 +1,5 @@
 import { LoginPage } from "../../../pages/auth/LoginPage";
-import { CloudPage } from "../../../entities/user/CloudPage";
+import { CloudPage } from "../../../pages/CloudPage";
 import { MainPage } from "../../../pages/MainPage";
 import { SignupPage } from "../../../pages/auth/SignupPage";
 

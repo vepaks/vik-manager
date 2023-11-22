@@ -1,6 +1,5 @@
 import axios from "axios";
 import {setData} from "../../app/reducers/dataReducer";
-import {redirectToLogin} from "../../shared/lib/redirects/toLogin/redirectToLogin";
 
 export function getData() {
   return async (dispatch) => {
@@ -10,7 +9,7 @@ export function getData() {
       });
       dispatch(setData(response.data))
     } catch (e) {
-      redirectToLogin()
+      console.log(e.message)
     }
   };
 }
