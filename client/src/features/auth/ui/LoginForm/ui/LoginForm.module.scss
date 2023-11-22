@@ -1,15 +1,11 @@
-.LoginForm {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
+.Login {
+  background: var(--inverted-bg-color);
 }
 
-.input {
-  margin-top: 10px;
+.Logo {
+  color: var(--inverted-bg-color);
 }
 
-.loginBtn {
-  margin-top: 15px;
-  margin-left: auto;
+.Button {
   background: var(--bg-color);
 }
