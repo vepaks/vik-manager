@@ -4,92 +4,58 @@ import { AppLink, AppLinkTheme } from "../../../shared/ui/AppLink/AppLink";
 import { ThemeSwitcher } from "../../ThemeSwitcher";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../app/reducers/userReducer";
-import { Modal } from "../../../shared/ui/Modal/Modal";
-import React, {useCallback, useState} from "react";
-import {LoginForm} from "../../../features/auth";
-import {LoginModal} from "../../../features/auth/ui";
+import { redirectToLogin } from "../../../shared/lib/redirects/toLogin/redirectToLogin";
 
 export const Navbar = ({ className }) => {
+
   const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
 
-
-  const [isAuthModal, setIsAuthModal] = useState(false)
-
-    const onCloseModal = useCallback(() => {
-        setIsAuthModal(false)
-    }, [])
-
-
-    const onShowModal = useCallback(() => {
-        setIsAuthModal(true)
-    }, [])
-
-
-
+  if (isAuth) {
     return (
-    <div className={classNames(cls.Navbar, {}, [className])}>
-      <ThemeSwitcher />
-      <LoginModal
-        isOpen={isAuthModal}
-        onClose={onCloseModal}
-
-      />
-      <div className={classNames(cls.header, {}, [className])}>
-        {/*<h1  >ВиК Manager Pro Max</h1>*/}
-      </div>
+      <div className={classNames(cls.Navbar, {}, [className])}>
+        <ThemeSwitcher />
         <div className={cls.links}>
-        {isAuth ? (
-          <div>
-            <AppLink
-              theme={AppLinkTheme.SECONDARY}
-              to="/"
-              className={cls.mainLink}
-            >
-              ПОТРЕБИТЕЛИ
-            </AppLink>
-            <AppLink
-              theme={AppLinkTheme.SECONDARY}
-              to="/cloud"
-              className={cls.mainLink}
-            >
-              ДОКУМЕНТАЦИЯ
-            </AppLink>
-            <AppLink
-              onClick={() => {
-                dispatch(logout());
-              }}
-              theme={AppLinkTheme.SECONDARY}
-              className={cls.mainLink}
-            >
-              ИЗЛЕЗ
-            </AppLink>
-          </div>
-        ) : (
-          <div>
-              {/*<Button*/}
-              {/*    theme={ThemeButton.CLEAR}*/}
-              {/*    className={cls.links}*/}
-              {/*>*/}
-              {/*    Влез*/}
-              {/*</Button>*/}
+          <AppLink
+            theme={AppLinkTheme.SECONDARY}
+            to="/"
+            className={cls.mainLink}
+          >
+            ПОТРЕБИТЕЛИ
+          </AppLink>
+          <AppLink
+            onClick={() => {
+              dispatch(logout());
+            }}
+            theme={AppLinkTheme.SECONDARY}
+            className={cls.mainLink}
+          >
+            ИЗЛЕЗ
+          </AppLink>
+        </div>
+      </div>
+    );
+  }
 
-            <AppLink
-              theme={AppLinkTheme.SECONDARY}
-              className={cls.mainLink}
-              onClick={onShowModal}
-            >
-              LOGIN
-            </AppLink>
-            <AppLink
-              theme={AppLinkTheme.SECONDARY}
-              to="/signup"
-              className={cls.mainLink}
-            >
-              REGISTER
-            </AppLink>
-          </div>
-        )}
+  return (
+    <div className={classNames(cls.Navbar, {}, [className])}>
+      <div className={cls.links}>
+        <div>
+          <AppLink
+            theme={AppLinkTheme.SECONDARY}
+            to="/login"
+            className={cls.mainLink}
+          >
+            LOGIN
+          </AppLink>
+          <AppLink
+            theme={AppLinkTheme.SECONDARY}
+            to="/signup"
+            className={cls.mainLink}
+          >
+            REGISTER
+          </AppLink>
+        </div>
       </div>
     </div>
   );
