@@ -6,6 +6,7 @@ import {Navbar} from "../widgets/Navbar";
 import {AppRouter} from "./providers/router";
 import {useDispatch} from "react-redux";
 import {auth} from "../features/auth/models/auth";
+import {Footer} from "../widgets/Footer";
 
 const App = () => {
     const { theme } = useTheme();
@@ -21,6 +22,7 @@ const App = () => {
         >
             <Navbar/>
             <AppRouter />
+            <Footer/>
         </div>
     );
 };
