@@ -4,17 +4,20 @@ import { AppLink, AppLinkTheme } from "../../../shared/ui/AppLink/AppLink";
 import { ThemeSwitcher } from "../../ThemeSwitcher";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../app/reducers/userReducer";
-import { redirectToLogin } from "../../../shared/lib/redirects/toLogin/redirectToLogin";
 
 export const Navbar = ({ className }) => {
 
   const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
+  const id = useSelector(state => state.user._id)
+
+  console.log(id)
 
   if (isAuth) {
     return (
       <div className={classNames(cls.Navbar, {}, [className])}>
         <ThemeSwitcher />
+        <p className={cls.number}>Вашият номер: {id}</p>
         <div className={cls.links}>
           <AppLink
             theme={AppLinkTheme.SECONDARY}

@@ -18,6 +18,7 @@
 
 ![img](https://github.com/vepaks/vik-manager/blob/main/public/img/screen.png)
 
+![img](https://github.com/vepaks/vik-manager/blob/main/public/img/AppSchema.png)
 
 ## Идеята
 1. При регистрация ВиК служителят получава уникален референтен номер. 
