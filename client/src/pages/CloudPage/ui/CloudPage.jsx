@@ -5,7 +5,7 @@ import { classNames } from "../../../shared/lib/classNames/classNames";
 import cls from "./CloudPage.module.scss";
 import { FileTable } from "../../../widgets/Tables";
 import { Button } from "../../../shared/ui/Button";
-import { Loader } from "../../../shared/ui/Loader";
+import {NotAuth} from "../../../widgets/NotAuth";
 
 export const CloudPage = ({ className }) => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export const CloudPage = ({ className }) => {
 
   useEffect(() => {
     dispatch(getFiles(currentDir));
-  }, [currentDir]);
+  }, [currentDir, dispatch]);
 
   if (isAuth) {
     return (
@@ -31,7 +31,7 @@ export const CloudPage = ({ className }) => {
       </div>
     );
   }
-  return <Loader />;
+  return <NotAuth />;
 };
 
 export default CloudPage;
