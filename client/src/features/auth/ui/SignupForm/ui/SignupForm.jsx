@@ -125,3 +125,8 @@ export const SignupForm = (props, { className }) => {
     </div>
   );
 };
+
+
+//TODO make a useRegistration Hook
+
+// const { registration } = useRegistration();

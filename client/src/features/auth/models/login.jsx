@@ -1,5 +1,6 @@
 import axios from "axios";
 import {setUser} from "../../../app/reducers/userReducer";
+import {setError} from "../../../app/reducers/errorReducer";
 
 export const login  = (email, password) => {
     return async dispatch => {
@@ -13,9 +14,9 @@ export const login  = (email, password) => {
             localStorage.setItem("user", JSON.stringify(response.data.user))
             console.log(response.data.user.id)
         } catch (e) {
+            dispatch(setError(e.response.data.message))
             console.log(e.response.status)
             console.log(e.response.data.message)
         }
     }
-
 }

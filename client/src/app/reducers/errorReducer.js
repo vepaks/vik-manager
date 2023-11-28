@@ -1,4 +1,4 @@
-const GET_ERROR = "GET_ERROR"
+const SET_ERROR = "GET_ERROR"
 
 const defaultState = {
     error: []
@@ -6,10 +6,10 @@ const defaultState = {
 
 export default function errorReducer (state = defaultState, action) {
     switch (action.type){
-        case GET_ERROR: return {...state, error: action.payload}
+        case SET_ERROR: return {...state, error: action.payload}
         default:
             return state;
     }
 }
 
-export const setError = (error) => ({type: GET_ERROR, payload: error})
+export const setError = (error) => ({type: SET_ERROR, payload: error})
