@@ -4,13 +4,14 @@ import thunk from "redux-thunk";
 import userReducer from "./userReducer";
 import fileReducer from "./fileReducer";
 import dataReducer from "./dataReducer";
+import errorReducer from "./errorReducer";
 
 const rootReducer = combineReducers(
     {
         user: userReducer,
         files: fileReducer,
-        data: dataReducer
-
+        data: dataReducer,
+        errors: errorReducer,
     }
 )
 

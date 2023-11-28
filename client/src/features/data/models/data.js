@@ -1,5 +1,5 @@
 import axios from "axios";
-import {setData} from "../../app/reducers/dataReducer";
+import {setData} from "../../../app/reducers/dataReducer";
 
 export function getData() {
   return async (dispatch) => {
