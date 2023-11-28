@@ -9,15 +9,14 @@ export const Navbar = ({ className }) => {
 
   const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
-  const id = useSelector(state => state.user._id)
-
-  console.log(id)
+  const currentUserId = useSelector((state) => state.user.currentUser.id)
+  console.log(currentUserId)
 
   if (isAuth) {
     return (
       <div className={classNames(cls.Navbar, {}, [className])}>
         <ThemeSwitcher />
-        <p className={cls.number}>Вашият номер: {id}</p>
+        <p className={cls.number}>Вашият номер: {currentUserId}</p>
         <div className={cls.links}>
           <AppLink
             theme={AppLinkTheme.SECONDARY}

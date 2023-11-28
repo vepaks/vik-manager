@@ -10,7 +10,8 @@ export const login  = (email, password) => {
             })
             dispatch(setUser(response.data.user))
             localStorage.setItem("token", response.data.token)
-            console.log(response.data)
+            localStorage.setItem("user", JSON.stringify(response.data.user))
+            console.log(response.data.user.id)
         } catch (e) {
             console.log(e.response.status)
             console.log(e.response.data.message)

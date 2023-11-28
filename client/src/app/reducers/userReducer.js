@@ -11,11 +11,13 @@ export default function userReducer(state = defaultSpate, action) {
     case SET_USER:
       return {
         ...state,
-        currentUser: action.payload.user,
+        currentUser: action.payload,
         isAuth: true
       }
       case LOGOUT:
         localStorage.removeItem("token")
+        localStorage.removeItem("user")
+        localStorage.removeItem("theme")
       return {
         ...state,
         currentUser: {},
