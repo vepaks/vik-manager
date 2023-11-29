@@ -6,6 +6,7 @@ import { store } from "./app/reducers";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "./app/providers/ThemeProvider";
 import { BrowserRouter } from "react-router-dom";
+import "./shared/config/i18n/i18n";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
