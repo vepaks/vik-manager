@@ -6,7 +6,6 @@ import { AppRouter } from "./providers/router";
 import { useDispatch } from "react-redux";
 import { auth } from "../features/auth/models/auth";
 import { Footer } from "../widgets/Footer";
-import { Loader } from "../shared/ui/Loader";
 
 const App = () => {
   const { theme } = useTheme();
