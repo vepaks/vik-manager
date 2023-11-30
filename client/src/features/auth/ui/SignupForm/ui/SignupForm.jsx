@@ -4,8 +4,12 @@ import { Input } from "../../../../../shared/ui/Input";
 import { Button } from "../../../../../shared/ui/Button";
 import React, { useState } from "react";
 import useRegistration from "../../../models/registration";
+import {useTranslation} from "react-i18next";
 
 export const SignupForm = (props, { className }) => {
+
+  const {t } = useTranslation()
+
   // const [FirstName, setFirstName] = useState("");
   // const [LastName, setLastName] = useState("");
   const [Email, setEmail] = useState("");
@@ -24,7 +28,7 @@ export const SignupForm = (props, { className }) => {
                   "text-4xl font-bold",
                 ])}
               >
-                Регистрация в системата
+                {t("Регистрация в системата")}
               </h3>
             </a>
           </div>
@@ -69,7 +73,7 @@ export const SignupForm = (props, { className }) => {
                   value={Email}
                   setValue={setEmail}
                   type="email"
-                  placeholder="въведете email"
+                  placeholder={t("въведете email")}
                 />
               </div>
             </div>
@@ -82,7 +86,7 @@ export const SignupForm = (props, { className }) => {
                   value={Password}
                   setValue={setPassword}
                   type="password"
-                  placeholder="въведете парола"
+                  placeholder={t("въведете парола")}
                 />
               </div>
             </div>
@@ -106,7 +110,8 @@ export const SignupForm = (props, { className }) => {
                 className="text-sm text-gray-600 underline hover:text-gray-900"
                 href="/login"
               >
-                Вече имаш регистрация?
+                {t("Вече имаш регистрация?")}
+
               </a>
               <Button
                 className={classNames(cls.Button, {}, [
@@ -115,7 +120,8 @@ export const SignupForm = (props, { className }) => {
                 type="submit"
                 onClick={() => registration(Email, Password)}
               >
-                Регистрация
+                {t("Регистрация")}
+
               </Button>
             </div>
           </div>
