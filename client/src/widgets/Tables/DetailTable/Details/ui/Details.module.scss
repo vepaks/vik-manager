@@ -1,4 +1,4 @@
-.Data {
+.Details {
   margin: 10px 0;
   border-bottom: solid 2px var(--inverted-bg-color);
   display: grid;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.Data:hover {
+.Details:hover {
   transform: scale(1.01);
 }
 
@@ -34,23 +34,22 @@
   display: none;
 }
 
-.Data:hover .date {
+.Details:hover .date {
   grid-column-start: 3;
 }
 
-.Data:hover .size {
+.Details:hover .size {
   grid-column-start: 4;
 }
 
-
-.Data:hover .download {
+.Details:hover .download {
   grid-column-start: 5;
   display: block;
   background-color: var(--inverted-bg-color);
   margin-left: 2px;
 }
 
-.Data:hover .delete {
+.Details:hover .delete {
   grid-column-start: 6;
   display: block;
   background-color: var(--inverted-bg-color);

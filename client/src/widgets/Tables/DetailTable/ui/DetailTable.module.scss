@@ -1,0 +1,28 @@
+.DetailTable {
+  //background: var(--inverted-bg-color);
+  margin: 20px 4em 0;
+  //max-width: 800px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 4fr repeat(4, 1fr);
+}
+
+.name {
+  grid-column-start: 2;
+}
+
+.date {
+  grid-column-start: 5;
+  justify-self: center;
+}
+
+.size {
+  grid-column-start: 6;
+  justify-self: center;
+}
+
+.loader {
+
+}

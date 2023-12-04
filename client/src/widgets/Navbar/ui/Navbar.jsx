@@ -25,7 +25,7 @@ export const Navbar = ({ className }) => {
     if (isAuth) {
     return (
       <div className={classNames(cls.Navbar, {}, [className])}>
-
+          <Button onClick={toggle}>{t("ЕЗИК")}</Button>
           <ThemeSwitcher />
         {/*<p className={cls.number}>Вашият номер: {currentUserId}</p>*/}
         <div className={cls.links}>

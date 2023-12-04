@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getDataFromOneAddress } from "../../../features/data/index";
 import {useLocation} from "react-router-dom";
+import {DetailTable} from "../../../widgets/Tables/DetailTable";
 
 const DetailPage = () => {
     const dispatch = useDispatch();
@@ -15,7 +16,13 @@ const DetailPage = () => {
   }, [dispatch]);
 
     const data = useSelector((state) => state.data.data);
-    data.map(data => console.log(data.chatId));
+
+    return (
+        <div>
+            <DetailTable/>
+        </div>
+    )
+
 
 };
 
