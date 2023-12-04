@@ -18,8 +18,8 @@ export const Data = ({data}) => {
             <div className={classNames(cls.size, {}, [])}>
                 {data.data[data.data.length - 1]}
             </div>
-            <Link to={`/detail?chatId=${data.chatId}`} className={classNames(cls.download, {}, [])}>
-                <Button>Подробно</Button>
+            <Link to={`/details?chatId=${data.chatId}`} className={classNames(cls.download, {}, [])}>
+               Подробно
             </Link>
             <Button  className={classNames(cls.delete, {}, [])} >Напомни</Button>
         </div>

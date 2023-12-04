@@ -42,12 +42,12 @@
   grid-column-start: 4;
 }
 
+
 .Data:hover .download {
   grid-column-start: 5;
   display: block;
   background-color: var(--inverted-bg-color);
   margin-left: 2px;
-
 }
 
 .Data:hover .delete {
