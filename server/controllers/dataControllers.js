@@ -21,6 +21,17 @@ class DataControllers {
       return res.status(500).json({ message: "Няма достъп до данни!" });
     }
   }
+
+  async postData(req, res) {
+    try {
+      const newAddress = new Address(req.body);
+      const savedAddress = await newAddress.save();
+      return res.json(savedAddress);
+    } catch (e) {
+      console.log(e);
+      return res.status(500).json({ message: "Няма достъп до данни!" });
+    }
+  }
 }
 
 module.exports = new DataControllers();
