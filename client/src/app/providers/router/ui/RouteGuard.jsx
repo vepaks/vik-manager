@@ -12,7 +12,7 @@ const RouteGuard = ({children}) => {
             }
         }, [isAuth, navigate]);
 
-    return <>{children}</>
+    return <div>{children}</div>
 
 };
 

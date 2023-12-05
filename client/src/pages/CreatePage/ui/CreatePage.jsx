@@ -1,11 +1,24 @@
-import {classNames} from "../../../shared/lib/classNames/classNames";
-import cls from './CreatePage.module.scss'
+import React, {useEffect} from "react";
+import { CreateForm } from "../../../features/data/ui/CreateForm/CreateForm";
+import {useNavigate} from "react-router-dom";
+import {useSelector} from "react-redux";
 
-export const CreatePage = ({className}) => {
-    return (
-        <div className={classNames(cls.CreatePage, {}, [className])}>
+const CreatePage = () => {
 
-        </div>
-    );
+    const navigate = useNavigate();
+    const isAuth = useSelector((state) => state.user.isAuth);
+
+    useEffect(() => {
+        if(!isAuth){
+            navigate('/login');
+        }
+    }, [isAuth, navigate]);
+
+  return (
+    <div>
+      <CreateForm />
+    </div>
+  );
 };
 
+export default CreatePage;
