@@ -1,11 +1,12 @@
-import {classNames} from "../../../shared/lib/classNames/classNames";
-import cls from './CreatePage.module.scss'
+import React from "react";
+import { CreateForm } from "../../../features/data/ui/CreateForm/CreateForm";
 
-export const CreatePage = ({className}) => {
-    return (
-        <div className={classNames(cls.CreatePage, {}, [className])}>
-
-        </div>
-    );
+const CreatePage = () => {
+  return (
+    <div>
+      <CreateForm />
+    </div>
+  );
 };
 
+export default CreatePage;

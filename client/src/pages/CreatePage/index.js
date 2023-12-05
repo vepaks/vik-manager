@@ -1,2 +1,2 @@
-import {CreatePage} from "./ui/CreatePage"
-export {CreatePage}
+import { CreatePageAsync } from "./ui/CreatePage.async";
+export { CreatePageAsync as CreatePage};
