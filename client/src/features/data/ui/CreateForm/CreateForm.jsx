@@ -10,7 +10,7 @@ export const CreateForm = ({className}) => {
     const {t} = useTranslation()
 
     return (
-        <div className={classNames(cls.CreateForm, {}, [className])}>
+        <div className={classNames(cls, {}, [className])}>
             WORKS
             <Suspense fallback={<Loader />}>
                 <div>
@@ -28,7 +28,7 @@ export const CreateForm = ({className}) => {
                             </a>
                         </div>
                         <div
-                            className={classNames(cls, {}, [
+                            className={classNames(cls.CreateForm, {}, [
                                 className,
                                 "w-full px-6 py-4 mt-6 overflow-hidden shadow-md sm:max-w-md sm:rounded-lg",
                             ])}
