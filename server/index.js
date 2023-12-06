@@ -148,7 +148,6 @@ const startBot = async () => {
         if(currAddress) {
           refUser.addresses.push(currAddress._id);
           await refUser.save();
-
         }
 
         await bot.sendMessage(

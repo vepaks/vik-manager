@@ -26,8 +26,9 @@
   justify-self: center;
 }
 
-.download {
+.details {
   display: none;
+  text-align: center;
 }
 
 .delete {
@@ -43,7 +44,7 @@
 }
 
 
-.Data:hover .download {
+.Data:hover .details {
   grid-column-start: 5;
   display: block;
   background-color: var(--inverted-bg-color);
