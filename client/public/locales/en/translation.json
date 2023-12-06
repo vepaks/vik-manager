@@ -15,5 +15,13 @@
   "Документация": "Documents",
   "Дата": "Date",
   "Размер": "Size",
-  "ДОБАВИ АДРЕС": "ADD NEW ADDRESS"
+  "ДОБАВИ АДРЕС": "ADD NEW ADDRESS",
+  "Добавете нов адрес": "Add new address",
+  "Адрес на подребителя": "User address",
+  "въведете адрес": "add address",
+  "Номер на потребителя": "chatId of user",
+  "въведете номер": "add number",
+  "Добавете данни": "Add data",
+  "добавете дата": "аdd data",
+  "Добави": "ADD"
 }

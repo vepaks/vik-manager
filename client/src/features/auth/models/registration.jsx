@@ -14,7 +14,6 @@ const useRegistration = () => {
           password,
         },
       );
-
       console.log(response.status);
       console.log(response.data.message);
     } catch (e) {

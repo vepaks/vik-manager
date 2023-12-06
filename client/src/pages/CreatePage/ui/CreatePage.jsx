@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import { CreateForm } from "../../../features/data/ui/CreateForm/CreateForm";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
+import {Loader} from "../../../shared/ui/Loader";
 
 const CreatePage = () => {
 
@@ -14,11 +15,7 @@ const CreatePage = () => {
         }
     }, [isAuth, navigate]);
 
-  return (
-    <div>
-      <CreateForm />
-    </div>
-  );
+  return <div>{isAuth ? <CreateForm /> : <Loader />}</div>;
 };
 
 export default CreatePage;
