@@ -24,35 +24,48 @@ class DataControllers {
   }
 
   async postData(req, res) {
+
     try {
-      const { chatId, parentId, address, additionalData } = req.body;
 
-      const refUser = await User.findOne({ _id: parentId });
-      console.log(chatId, parentId, address, additionalData);
+      const newAddressData = req.body;
 
-      const newAddress = new Address({
-        chatId,
-        parent: refUser._id,
-        address,
-        data: additionalData,
-
-      });
-
-      const savedAddress = await newAddress.save();
-      const currAddress = await Address.findOne({ chatId: chatId });
-      console.log(refUser.addresses);
-      if (currAddress) {
-        refUser.addresses.push(currAddress._id);
-        await refUser.save();
+      if (!newAddressData.parentId || !newAddressData.address) {
+        return res.status(400).json({ message: "Липсват данни" });
       }
-      currAddress.data.push(additionalData);
-      await currAddress.save();
 
-      return res.json(savedAddress);
+      const parentUser = await User.findOne({ _id: newAddressData.parentId });
+
+      if (!parentUser) {
+        return res.status(400).json({ message: "Няма такъв потребител" });
+      }
+const existingAddress = await Address.findOne({ chatId: newAddressData.chatId });
+
+  if (existingAddress) {
+  existingAddress.data.push(newAddressData.data);
+  const updatedAddress = await existingAddress.save();
+  return res.json(updatedAddress);
+}
+
+const newAddress = new Address({
+  chatId: newAddressData.chatId,
+  parent: parentUser._id,
+  address: newAddressData.address,
+  data: newAddressData.data,
+});
+
+const savedAddress = await newAddress.save();
+
+parentUser.addresses.push(savedAddress._id);
+await parentUser.save();
+
+return res.json(savedAddress);
+
+
     } catch (e) {
       console.log(e);
       return res.status(500).json({ message: "Няма достъп до данни!" });
     }
+
   }
 }
 
