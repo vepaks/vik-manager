@@ -6,5 +6,6 @@ const dataController = require("../controllers/dataControllers")
 router.get("/", authMiddleware, dataController.getData)
 router.get("/details", authMiddleware, dataController.getAllDataFromAddress)
 router.post("/add-address", authMiddleware, dataController.postData)
+router.delete('/delete-address/:id', authMiddleware, dataController.deleteAddress);
 
 module.exports = router

@@ -27,6 +27,9 @@ export const Navbar = ({ className }) => {
         <Button onClick={toggle}>{t("ЕЗИК")}</Button>
         <ThemeSwitcher />
         <p className={cls.number}>{t("Вашият номер")}: {currentUserId}</p>
+        {/*<WeatherAPI className={cls.weather}>*/}
+        {/*<City name="sofia" />*/}
+        {/*</WeatherAPI>*/}
         <div className={cls.links}>
           <AppLink
             theme={AppLinkTheme.SECONDARY}
