@@ -1,10 +1,19 @@
 import { classNames } from "../../../../../shared/lib/classNames/classNames";
 import cls from "./Data.module.scss";
 import dataLogo from "../../../../../shared/assets/icons/dataLogo.svg";
-import { Button } from "../../../../../shared/ui/Button";
 import { AppLink } from "../../../../../shared/ui/AppLink/AppLink";
-
+import {useDispatch} from "react-redux";
+import {deleteAddress} from "../../../../../features/data/models/deleteData";
 export const Data = ({ data }) => {
+
+  const dispatch = useDispatch();
+
+  const handleDeleteClick = () => {
+    dispatch(deleteAddress(data._id));
+  };
+
+  console.log(data._id)
+
   return (
     <div className={classNames(cls.Data, {}, [])}>
       <img src={dataLogo} alt="logo" className={classNames(cls.img, {}, [])} />
@@ -18,7 +27,11 @@ export const Data = ({ data }) => {
       >
         <p className={cls.details}>Подробно</p>
       </AppLink>
-      <Button className={classNames(cls.delete, {}, [])}>Напомни</Button>
+      <AppLink
+        onClick={handleDeleteClick}
+      >
+      <p className={cls.details}>Изтрий</p>
+      </AppLink>
     </div>
   );
 };
