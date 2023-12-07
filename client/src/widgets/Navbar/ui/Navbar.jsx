@@ -26,7 +26,7 @@ export const Navbar = ({ className }) => {
       <div className={classNames(cls.Navbar, {}, [className])}>
         <Button onClick={toggle}>{t("ЕЗИК")}</Button>
         <ThemeSwitcher />
-        {/*<p className={cls.number}>Вашият номер: {currentUserId}</p>*/}
+        <p className={cls.number}>{t("Вашият номер")}: {currentUserId}</p>
         <div className={cls.links}>
           <AppLink
             theme={AppLinkTheme.SECONDARY}
