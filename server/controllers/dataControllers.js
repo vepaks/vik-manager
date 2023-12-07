@@ -41,7 +41,7 @@ class DataControllers {
 const existingAddress = await Address.findOne({ chatId: newAddressData.chatId });
 
   if (existingAddress) {
-  existingAddress.data.push(newAddressData.data);
+    existingAddress.data.push(newAddressData.additionalData);
   const updatedAddress = await existingAddress.save();
   return res.json(updatedAddress);
 }
@@ -50,7 +50,7 @@ const newAddress = new Address({
   chatId: newAddressData.chatId,
   parent: parentUser._id,
   address: newAddressData.address,
-  data: newAddressData.data,
+  data: newAddressData.additionalData,
 });
 
 const savedAddress = await newAddress.save();
@@ -67,6 +67,37 @@ return res.json(savedAddress);
     }
 
   }
+
+
+  async deleteAddress(req, res) {
+    try {
+      const { id } = req.params;
+
+      const address = await Address.findOne({ _id: id });
+
+      if (!address) {
+        return res.status(404).json({ message: "No address found!" });
+      }
+
+      const parentUser = await User.findOne({ _id: address.parent });
+
+      if (!parentUser) {
+        return res.status(404).json({ message: "Parent User not found!" });
+      }
+
+      await Address.deleteOne({ _id: id });
+
+      parentUser.addresses = parentUser.addresses.filter(addr => addr.toString() !== id);
+      await parentUser.save();
+
+      return res.json({ message: "Address deleted!" });
+
+    } catch (e) {
+      console.log(e);
+      return res.status(500).json({ message: "Failed to delete address!" });
+    }
+  }
+
 }
 
 module.exports = new DataControllers();
