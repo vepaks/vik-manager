@@ -2,7 +2,7 @@ import { classNames } from "../../../../../shared/lib/classNames/classNames";
 import cls from "./LoginForm.module.scss";
 import { Input } from "../../../../../shared/ui/Input";
 import { Button } from "../../../../../shared/ui/Button";
-import React, { Suspense, useState } from "react";
+import React, {Suspense, useEffect, useState} from "react";
 import { login } from "../../../models/login";
 import { useDispatch } from "react-redux";
 import { Loader } from "../../../../../shared/ui/Loader";
@@ -10,11 +10,22 @@ import { useTranslation } from "react-i18next";
 
 export const LoginForm = ({ className }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [Errors, setErrors] = useState({error: ""});
 
-  const dispatch = useDispatch();
+  const handleLogin = async () => {
+    try {
+      setErrors({ error: "" });
+
+      const response = await dispatch(login(Email, Password));
+      console.log(response.data.user.id);
+    } catch (error) {
+      setErrors({ error: error.response?.data?.message || "Грешка при авторизация" });
+    }
+  };
 
   return (
     <div className={classNames(cls, {}, [className])}>
@@ -33,6 +44,22 @@ export const LoginForm = ({ className }) => {
                 </h3>
               </a>
             </div>
+
+            {Errors.error && (
+              <div className="text-center py-4 lg:px-4">
+                <div
+                  className="p-2 bg-red-800 items-center text-red-100 leading-none lg:rounded-full flex lg:inline-flex"
+                  role="alert"
+                >
+                  <span className="flex rounded-full bg-red-500 uppercase px-2 py-1 text-xs font-bold mr-3">
+                   {t("Грешка")}
+                  </span>
+                  <span className="font-semibold mr-2 text-left flex-auto">
+                      {t(Errors.error)}
+                  </span>
+                </div>
+              </div>
+            )}
             <div
               className={classNames(cls.Login, {}, [
                 className,
@@ -77,9 +104,7 @@ export const LoginForm = ({ className }) => {
                     "inline-flex items-center px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md active:bg-gray-900 false",
                   ])}
                   type="submit"
-                  onClick={() => {
-                    dispatch(login(Email, Password));
-                  }}
+                  onClick={handleLogin}
                 >
                   {t("Влез")}
                 </Button>
