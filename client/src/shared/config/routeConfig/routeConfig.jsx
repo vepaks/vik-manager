@@ -13,7 +13,7 @@ export class AppRoutes {
   static CLOUD = new AppRoutes("cloud");
   static DETAILS = new AppRoutes("details");
   static CREATE = new AppRoutes("create");
-  // static NOT_FOUND = new AppRoutes("*");
+  static NOT_FOUND = new AppRoutes("notfound");
 
   constructor(AppRoutes) {
     this.AppRoutes = AppRoutes;
@@ -30,7 +30,7 @@ export const RoutePath = {
   [AppRoutes.CLOUD]: "/cloud",
   [AppRoutes.DETAILS]: "/details",
   [AppRoutes.CREATE]: "/create",
-  // [AppRoutes.NOT_FOUND]: "*",
+  [AppRoutes.NOT_FOUND]: "*",
 };
 export const routeConfig = {
   [AppRoutes.MAIN]: {
@@ -57,8 +57,8 @@ export const routeConfig = {
     path: RoutePath.create,
     element: <CreatePage />,
   },
-  // [AppRoutes.NOT_FOUND]: {
-  //   path: AppRoutes.NOT_FOUND,
-  //   element: <NotFound />,
-  // },
+  [AppRoutes.NOT_FOUND]: {
+    path: RoutePath[AppRoutes.NOT_FOUND],
+    element: <NotFound />,
+  },
 };
