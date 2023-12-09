@@ -1,10 +1,10 @@
-
 .Footer {
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
 }
 
 footer {
-  margin-top: auto;
+  flex-grow: 1;
+  min-height: 50vh;
 }

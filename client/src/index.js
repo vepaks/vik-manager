@@ -6,7 +6,8 @@ import { store } from "./app/reducers";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "./app/providers/ThemeProvider";
 import { BrowserRouter } from "react-router-dom";
-import "./shared/config/i18n/i18n"
+import "./shared/config/i18n/i18n";
+import { ErrorBoundary } from "./app/providers/ErrorBoundary";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -15,9 +16,11 @@ root.render(
   <StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
+        <ErrorBoundary>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </ErrorBoundary>
       </BrowserRouter>
     </Provider>
   </StrictMode>,

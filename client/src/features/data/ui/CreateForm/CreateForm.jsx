@@ -7,6 +7,7 @@ import React, { Suspense, useState } from "react";
 import { useTranslation } from "react-i18next";
 import usePostData from "../../models/postData";
 import {useSelector} from "react-redux";
+import {AppLink} from "../../../../shared/ui/AppLink/AppLink";
 
 export const CreateForm = ({ className }) => {
   const { t } = useTranslation();
@@ -15,6 +16,7 @@ export const CreateForm = ({ className }) => {
   const [address, setAddress] = useState("");
   const [chatId, setUserId] = useState("");
   const [additionalData, setAdditionalData] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const parentId = useSelector(state => state.user.currentUser?.id);
   console.log(parentId)
 
@@ -22,6 +24,7 @@ export const CreateForm = ({ className }) => {
   const handleClick = async () => {
     try {
       await postData(chatId, parentId, address, additionalData);
+      setSuccessMessage(t("Добавихте нови данни! Добави още?"));
     } catch (error) {
       console.error("Error submitting data:", error.message);
     }
@@ -44,6 +47,18 @@ export const CreateForm = ({ className }) => {
                 </h3>
               </a>
             </div>
+            {successMessage && (
+              <div className="mt-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4">
+                {successMessage}
+              </div>
+            )}
+            {successMessage && (
+                <div className="mt-4 bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
+                  <p>
+                    Виж обновените данни <AppLink to="/">тук</AppLink>{" "}
+                  </p>
+                </div>
+            )}
             <div
               className={classNames(cls.CreateForm, {}, [
                 className,
@@ -85,7 +100,7 @@ export const CreateForm = ({ className }) => {
                     type="text"
                     value={additionalData}
                     setValue={setAdditionalData}
-                    placeholder={t("добавете дата")}
+                    placeholder={t("добавете данни")}
                   />
                 </div>
               </div>

@@ -5,6 +5,7 @@ import { Button } from "../../../../../shared/ui/Button";
 import React, { useState } from "react";
 import useRegistration from "../../../models/registration";
 import {useTranslation} from "react-i18next";
+import {useSelector} from "react-redux";
 
 export const SignupForm = (props, { className }) => {
 
@@ -15,6 +16,8 @@ export const SignupForm = (props, { className }) => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const { registration } = useRegistration();
+
+  // const error = useSelector((state) => state.errors.error);
 
   return (
     <div className={classNames(cls, {}, [className])}>
@@ -32,6 +35,24 @@ export const SignupForm = (props, { className }) => {
               </h3>
             </a>
           </div>
+
+          {/*{error && (*/}
+          {/*    <div className="text-center py-4 lg:px-4">*/}
+          {/*      <div*/}
+          {/*          className="p-2 bg-red-800 items-center text-red-100 leading-none lg:rounded-full flex lg:inline-flex"*/}
+          {/*          role="alert"*/}
+          {/*      >*/}
+          {/*        <span className="flex rounded-full bg-red-500 uppercase px-2 py-1 text-xs font-bold mr-3">*/}
+          {/*         {t("Грешка")}*/}
+          {/*        </span>*/}
+          {/*        <span className="font-semibold mr-2 text-left flex-auto">*/}
+          {/*            {error}*/}
+          {/*        </span>*/}
+          {/*      </div>*/}
+          {/*    </div>*/}
+          {/*)}*/}
+
+
           <div
             className={classNames(cls.Signup, {}, [
               className,
