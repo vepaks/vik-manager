@@ -13,9 +13,7 @@ export const Data = ({ data }) => {
       <div className={classNames(cls.size, {}, [])}>
         {data.data[data.data.length - 1]}
       </div>
-      <AppLink
-        to={`/details?chatId=${data.chatId}`}
-      >
+      <AppLink to={`/details?chatId=${data.chatId}`}>
         <p className={cls.details}>Подробно</p>
       </AppLink>
       <Button className={classNames(cls.delete, {}, [])}>Напомни</Button>
