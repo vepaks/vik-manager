@@ -15,5 +15,4 @@ export const auth  = () => {
             localStorage.removeItem('token')
         }
     }
-
 }
