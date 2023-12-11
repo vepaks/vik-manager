@@ -41,8 +41,6 @@ const SignupForm = ({ className }) => {
           formData.password
       );
 
-      console.log(response.data.status);
-
       if (response.data.status === 400) {
         setErrorMessage("Response status is 400");
       }
@@ -136,7 +134,7 @@ const SignupForm = ({ className }) => {
                         handleChange("confirmPassword", value)
                     }
                     type="password"
-                    placeholder={t("Подтвердите пароль")}
+                    placeholder={t("Подтвърдете паролата")}
                 />
                 {!isValid && (
                     <p>{t("Passwords do not match or contain spaces")}</p>
