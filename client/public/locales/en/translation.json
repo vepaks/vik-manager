@@ -28,5 +28,9 @@
   "Грешка": "Error",
   "Невалидна парола": "Invalid password",
   "ВЛЕЗ": "LOGIN",
-  "РЕГИСТРАЦИЯ": "REGISTER"
+  "РЕГИСТРАЦИЯ": "REGISTER",
+  "Адресата е задължителен!": "The address is required!",
+  "Номерът на потребителя е задължителен!": "User ID is required!",
+  "Полето за данни е задължително!": "The data field is required!",
+  "Добавихте нови данни! Добави още?": "You have added new data! Add more?"
 }
