@@ -19,36 +19,39 @@ export const CreateForm = ({ className }) => {
   const [successMessage, setSuccessMessage] = useState("");
   const parentId = useSelector(state => state.user.currentUser?.id);
 
-  // Validation states
   const [addressError, setAddressError] = useState("");
   const [chatIdError, setUserIdError] = useState("");
   const [additionalDataError, setAdditionalDataError] = useState("");
 
+  const validInput = () => {
+    let isValid = true;
+    if (address.trim() === "") {
+      setAddressError(t("Адресата е задължителен!"));
+      isValid = false;
+    }
+    if (chatId.trim() === "") {
+      setUserIdError(t("Номерът на потребителя е задължителен!"));
+      isValid = false;
+    }
+    if (additionalData.trim() === "") {
+      setAdditionalDataError(t("Полето за данни е задължително!"));
+      isValid = false;
+    }
+    return isValid;
+  };
+
   const handleClick = async () => {
-    // Reset errors
     setAddressError("");
     setUserIdError("");
     setAdditionalDataError("");
 
-    // Add validation here
-    if (address.trim() === "") {
-      setAddressError(t("Адресата е задължителен!"));
-      return;
-    }
-    if (chatId.trim() === "") {
-      setUserIdError(t("Номерът на потребителя е задължителен!"));
-      return;
-    }
-    if (additionalData.trim() === "") {
-      setAdditionalDataError(t("Полето за данни е задължително!"));
-      return;
-    }
-
-    try {
-      await postData(chatId, parentId, address, additionalData);
-      setSuccessMessage(t("Добавихте нови данни! Добави още?"));
-    } catch (error) {
-      console.error("Error submitting data:", error.message);
+    if (validInput()) {
+      try {
+        await postData(chatId, parentId, address, additionalData);
+        setSuccessMessage(t("Добавихте нови данни! Добави още?"));
+      } catch (error) {
+        console.error("Error submitting data:", error.message);
+      }
     }
   };
 
