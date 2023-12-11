@@ -3,7 +3,6 @@ import cls from './Details.module.scss'
 import {Button} from "../../../../../shared/ui/Button";
 import dataLogo from "../../../../../shared/assets/icons/dataLogo.svg";
 
-
 export const Details = ({details}) => {
 //
 //    const handleDelete = () => {
