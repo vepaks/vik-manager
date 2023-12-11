@@ -12,12 +12,9 @@ export class AppRoutes {
   static SIGNUP = new AppRoutes("signup");
   static CLOUD = new AppRoutes("cloud");
   static DETAILS = new AppRoutes("details");
-<<<<<<< HEAD
   static CREATE = new AppRoutes("create");
   static NOT_FOUND = new AppRoutes("notfound");
-=======
   static ABOUT = new AppRoutes("about");
->>>>>>> detail-page
 
   constructor(AppRoutes) {
     this.AppRoutes = AppRoutes;
@@ -33,12 +30,9 @@ export const RoutePath = {
   [AppRoutes.SIGNUP]: "/signup",
   [AppRoutes.CLOUD]: "/cloud",
   [AppRoutes.DETAILS]: "/details",
-<<<<<<< HEAD
   [AppRoutes.CREATE]: "/create",
   [AppRoutes.NOT_FOUND]: "*",
-=======
   [AppRoutes.ABOUT]: "/about",
->>>>>>> detail-page
 };
 export const routeConfig = {
   [AppRoutes.MAIN]: {
@@ -61,7 +55,6 @@ export const routeConfig = {
     path: RoutePath.details,
     element: <DetailPage />,
   },
-<<<<<<< HEAD
   [AppRoutes.CREATE]: {
     path: RoutePath.create,
     element: <CreatePage />,
@@ -69,10 +62,8 @@ export const routeConfig = {
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath[AppRoutes.NOT_FOUND],
     element: <NotFound />,
-=======
-  [AppRoutes.ABOUT]: {
-    path: RoutePath.about,
-    element: <AboutPage />,
->>>>>>> detail-page
+  // [AppRoutes.ABOUT]: {
+  //   path: RoutePath.about,
+  //   element: <AboutPage />,
   },
 };
