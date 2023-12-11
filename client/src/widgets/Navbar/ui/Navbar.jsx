@@ -70,14 +70,14 @@ export const Navbar = ({ className }) => {
             to="/login"
             className={cls.mainLink}
           >
-            LOGIN
+              {t("ВЛЕЗ")}
           </AppLink>
           <AppLink
             theme={AppLinkTheme.SECONDARY}
             to="/signup"
             className={cls.mainLink}
           >
-            REGISTER
+              {t("РЕГИСТРАЦИЯ")}
           </AppLink>
         </div>
       </div>

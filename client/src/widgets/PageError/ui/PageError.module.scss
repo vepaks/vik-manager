@@ -1,0 +1,16 @@
+.PageError {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Btn:hover {
+  background-color: var(--inverted-bg-color);
+}
+
+.container {
+  border-bottom: solid 2px var(--inverted-bg-color);
+}

@@ -8,20 +8,26 @@ const DetailPage = () => {
     const dispatch = useDispatch();
     const location = useLocation();
 
-  useEffect(() => {
-      const queryParams = new URLSearchParams(location.search);
-      const chatId = queryParams.get("chatId");
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const chatId = queryParams.get("chatId");
 
-    dispatch(getDataFromOneAddress(chatId));
-  }, [dispatch]);
+        if (chatId) {
+            dispatch(getDataFromOneAddress(chatId));
+        }
+    }, [dispatch, location.search]);
 
     const data = useSelector((state) => state.data.data);
 
     return (
         <div>
-            <DetailTable/>
+            {data ? (
+                <DetailTable data={data} />
+            ) : (
+                <p>Loading or no data available</p>
+            )}
         </div>
-    )
+    );
 
 
 };

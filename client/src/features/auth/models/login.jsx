@@ -13,10 +13,12 @@ export const login  = (email, password) => {
             localStorage.setItem("token", response.data.token)
             localStorage.setItem("user", JSON.stringify(response.data.user))
             console.log(response.data.user.id)
+            return response;
         } catch (e) {
             dispatch(setError(e.response.data.message))
             console.log(e.response.status)
             console.log(e.response.data.message)
+            throw e;
         }
     }
 }

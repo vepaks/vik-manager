@@ -23,7 +23,7 @@ const usePostData = () => {
         },
       );
       console.log(response.status);
-      console.log(response.data.message);
+      console.log(response.data.chatId);
     } catch (e) {
       console.log(e.response.status);
       console.log(e.response.data.message);

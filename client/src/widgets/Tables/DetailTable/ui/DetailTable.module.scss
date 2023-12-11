@@ -6,7 +6,7 @@
 
 .header {
   display: grid;
-  grid-template-columns: 1fr 4fr repeat(4, 1fr);
+  grid-template-columns: 1fr 4fr repeat(2, 1fr);
 }
 
 .name {
@@ -14,12 +14,12 @@
 }
 
 .date {
-  grid-column-start: 5;
+  grid-column-start: 2;
   justify-self: center;
 }
 
 .size {
-  grid-column-start: 6;
+  grid-column-start: 3;
   justify-self: center;
 }
 
