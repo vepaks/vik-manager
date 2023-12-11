@@ -10,6 +10,7 @@ export class AppRoutes {
   static SIGNUP = new AppRoutes("signup");
   static CLOUD = new AppRoutes("cloud");
   static DETAILS = new AppRoutes("details");
+  static ABOUT = new AppRoutes("about");
 
   constructor(AppRoutes) {
     this.AppRoutes = AppRoutes;
@@ -25,6 +26,7 @@ export const RoutePath = {
   [AppRoutes.SIGNUP]: "/signup",
   [AppRoutes.CLOUD]: "/cloud",
   [AppRoutes.DETAILS]: "/details",
+  [AppRoutes.ABOUT]: "/about",
 };
 export const routeConfig = {
   [AppRoutes.MAIN]: {
@@ -46,5 +48,9 @@ export const routeConfig = {
   [AppRoutes.DETAILS]: {
     path: RoutePath.details,
     element: <DetailPage />,
+  },
+  [AppRoutes.ABOUT]: {
+    path: RoutePath.about,
+    element: <AboutPage />,
   },
 };
