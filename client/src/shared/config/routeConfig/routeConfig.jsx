@@ -4,7 +4,8 @@ import { MainPage } from "../../../pages/MainPage";
 import { SignupPage } from "../../../pages/auth/SignupPage";
 import { DetailPage } from "../../../pages/DetailPage";
 import { CreatePage } from "../../../pages/CreatePage/";
-import {NotFound} from "../../../pages/404";
+import { NotFound } from "../../../pages/404";
+import { AboutPage } from "../../../pages/AboutPage";
 
 export class AppRoutes {
   static MAIN = new AppRoutes("main");
@@ -62,8 +63,9 @@ export const routeConfig = {
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath[AppRoutes.NOT_FOUND],
     element: <NotFound />,
-  // [AppRoutes.ABOUT]: {
-  //   path: RoutePath.about,
-  //   element: <AboutPage />,
+  },
+  [AppRoutes.ABOUT]: {
+    path: RoutePath.about,
+    element: <AboutPage />,
   },
 };
