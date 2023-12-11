@@ -1,5 +1,6 @@
 import {classNames} from "../../../shared/lib/classNames/classNames";
 import cls from './Footer.module.scss'
+import {AppLink} from "../../../shared/ui/AppLink/AppLink";
 
 export const Footer = ({className}) => {
     return (
@@ -14,27 +15,35 @@ export const Footer = ({className}) => {
                         </div>
                         <ul className="flex flex-wrap items-center space-x-4 sm:space-x-8">
                             <li>
-                                <a rel="noopener noreferrer" href="#">Terms of Use</a>
+                                <AppLink rel="noopener noreferrer" href="#">Terms of Use</AppLink>
                             </li>
                             <li>
-                                <a rel="noopener noreferrer" href="#">Privacy</a>
+                                <AppLink rel="noopener noreferrer" href="#">Privacy</AppLink>
                             </li>
                         </ul>
                     </div>
                     <ul className="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
-                        <li>
-                            <a rel="noopener noreferrer" href="#">Instagram</a>
-                        </li>
-                        <li>
-                            <a rel="noopener noreferrer" href="#">Facebook</a>
-                        </li>
-                        <li>
-                            <a rel="noopener noreferrer" href="#">Twitter</a>
-                        </li>
+                            <li>
+                                <AppLink rel="noopener noreferrer" href="#">
+                                    {/*<img src="path/to/instagram_icon.png" alt="Instagram" />*/}
+                                    Instagram
+                                </AppLink>
+                            </li>
+                            <li>
+                                <AppLink rel="noopener noreferrer" href="#">
+                                    {/*<img src="path/to/facebook_icon.png" alt="Facebook" />*/}
+                                    Facebook
+                                </AppLink>
+                            </li>
+                            <li>
+                                <AppLink rel="noopener noreferrer" href="#">
+                                    {/*<img src="path/to/twitter_icon.png" alt="Twitter" />*/}
+                                    Twitter
+                                </AppLink>
+                            </li>
                     </ul>
                 </div>
             </footer>
         </div>
     );
 };
-
