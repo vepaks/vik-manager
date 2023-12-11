@@ -1,3 +1,3 @@
-import { SignupForm } from "./ui/SignupForm";
+import SignupForm from "./ui/SignupForm";
 
-export {SignupForm}
+export {SignupForm as SignupForm}
