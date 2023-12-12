@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { ManagerTable } from "../../../widgets/Tables";
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../../../features//data/index";
 import { NotAuth } from "../../../widgets/NotAuth";
+import { UpdateForm } from "../../../features/data/ui/UpdateForm/UpdateForm";
 
 const UpdatePage = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const UpdatePage = () => {
   if (isAuth) {
     return (
       <div>
-        <ManagerTable />
+        <UpdateForm />
       </div>
     );
   }
