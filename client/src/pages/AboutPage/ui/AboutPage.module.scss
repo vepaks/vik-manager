@@ -1,3 +1,11 @@
 .AboutPage {
+  padding: 20px;
+}
 
+.Btn:hover {
+  background-color: var(--inverted-bg-color);
+}
+
+.container {
+  border-bottom: solid 2px var(--inverted-bg-color);
 }
