@@ -98,6 +98,30 @@ return res.json(savedAddress);
     }
   }
 
+  async updateAddress(req, res) {
+    try {
+      const { id } = req.params;
+      const updatedData = req.body;
+
+      const existingAddress = await Address.findOne({ _id: id });
+
+      if (!existingAddress) {
+        return res.status(404).json({ message: "Address not found!" });
+      }
+
+      existingAddress.address = updatedData.address || existingAddress.address;
+      existingAddress.data = updatedData.additionalData || existingAddress.data;
+
+      const updatedAddress = await existingAddress.save();
+
+      return res.json(updatedAddress);
+
+    } catch (e) {
+      console.log(e);
+      return res.status(500).json({ message: "Failed to update address!" });
+    }
+  }
+
 }
 
 module.exports = new DataControllers();
