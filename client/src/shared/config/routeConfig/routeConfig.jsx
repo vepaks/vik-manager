@@ -6,6 +6,7 @@ import { DetailPage } from "../../../pages/DetailPage";
 import { CreatePage } from "../../../pages/CreatePage/";
 import { NotFound } from "../../../pages/404";
 import { AboutPage } from "../../../pages/AboutPage";
+import {UpdatePage} from "../../../pages/UpdatePage";
 
 export class AppRoutes {
   static MAIN = new AppRoutes("main");
@@ -16,6 +17,7 @@ export class AppRoutes {
   static CREATE = new AppRoutes("create");
   static NOT_FOUND = new AppRoutes("notfound");
   static ABOUT = new AppRoutes("about");
+  static UPDATE = new AppRoutes("update");
 
   constructor(AppRoutes) {
     this.AppRoutes = AppRoutes;
@@ -34,6 +36,7 @@ export const RoutePath = {
   [AppRoutes.CREATE]: "/create",
   [AppRoutes.NOT_FOUND]: "*",
   [AppRoutes.ABOUT]: "/about",
+  [AppRoutes.UPDATE]: "/update",
 };
 export const routeConfig = {
   [AppRoutes.MAIN]: {
@@ -67,5 +70,9 @@ export const routeConfig = {
   [AppRoutes.ABOUT]: {
     path: RoutePath.about,
     element: <AboutPage />,
+  },
+  [AppRoutes.UPDATE]: {
+    path: RoutePath.update,
+    element: <UpdatePage/>,
   },
 };
