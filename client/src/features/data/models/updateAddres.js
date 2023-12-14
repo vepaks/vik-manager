@@ -21,7 +21,7 @@ const updateAddressFailure = (error) => ({
 export const updateAddress = (id, updatedData) => async (dispatch) => {
     dispatch(updateAddressRequest());
     try {
-        const response = await axios.put(`http://localhost:5000/api/data/update/${id}`, updatedData, {
+        const response = await axios.put(`/api/data/update/${id}`, updatedData, {
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
 
