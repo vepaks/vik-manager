@@ -21,7 +21,7 @@ const deleteAddressFailure = (error) => ({
 export const deleteAddress = (id) => async (dispatch) => {
     dispatch(deleteAddressRequest());
     try {
-        const response = await axios.delete(`/api/data/delete-address/${id}`, {
+        const response = await axios.delete(`http://localhost:5000/api/data/delete-address/${id}`, {
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         console.log(response.data.message);

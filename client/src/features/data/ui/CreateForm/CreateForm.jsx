@@ -11,7 +11,7 @@ import { AppLink } from "../../../../shared/ui/AppLink/AppLink";
 
 export const CreateForm = ({ className }) => {
   const { t } = useTranslation();
-  const { postData } = usePostData(); // Use your custom hook
+  const { postData } = usePostData();
 
   const [address, setAddress] = useState("");
   const [chatId, setUserId] = useState("");
