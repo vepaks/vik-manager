@@ -7,6 +7,7 @@ import { UpdateForm } from "../../../features/data/ui/UpdateForm/UpdateForm";
 const UpdatePage = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.user.isAuth);
+  const isAuth = useSelector((state) => state.user.isAuth);
 
   useEffect(() => {
     dispatch(getData());

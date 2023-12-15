@@ -9,7 +9,7 @@ const usePostData = () => {
 
     try {
       const response = await axios.post(
-        "/api/data/add-address",
+        "http://localhost:5000/api/data/add-address",
         {
           chatId,
           parentId,

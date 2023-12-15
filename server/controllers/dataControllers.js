@@ -104,6 +104,7 @@ return res.json(savedAddress);
       const updatedData = req.body;
 
       const existingAddress = await Address.findOne({ _id: id });
+      console.log(existingAddress)
 
       if (!existingAddress) {
         return res.status(404).json({ message: "Address not found!" });
