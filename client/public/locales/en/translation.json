@@ -36,5 +36,6 @@
   "Невалиден e-mail": "Invalid e-mail",
   "Паролата не съвпада или съдържа свободни пространства": "Passwords do not match or contain spaces",
   "Подтвърдете паролата": "Confirm the password",
-  "Паролите не съвпадат или съдържат интервали": "Passwords do not match or contain spaces"
+  "Паролите не съвпадат или съдържат интервали": "Passwords do not match or contain spaces",
+  "Страницата не е намерена": "Page not found"
 }

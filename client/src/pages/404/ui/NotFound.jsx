@@ -1,6 +1,7 @@
 import {classNames} from "../../../shared/lib/classNames/classNames";
 import cls from './NotFound.module.scss'
 import {AppLink} from "../../../shared/ui/AppLink/AppLink";
+import {t} from "i18next";
 
 export const NotFound = ({className}) => {
     return (
@@ -13,7 +14,7 @@ export const NotFound = ({className}) => {
           >
             <div className="w-full px-6 py-16 rounded-md sm:px-12 md:px-16 xl:col-span-2 dark:bg-gray-900">
               <span className="block mb-2 dark:text-violet-400">
-                Страницата не е намерена
+               {t("Страницата не е намерена")}
               </span>
               <h1 className="text-8xl font-extrabold dark:text-gray-50">404</h1>
               <p className="my-8 underline">
